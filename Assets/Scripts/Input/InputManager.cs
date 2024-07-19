@@ -18,7 +18,7 @@ public class InputManager : MonoBehaviour
         playerShooting.SetShootButton(_shootButton);
         playerShooting.SetRechargingButton(_rechargingButton);
     }
-    public void OnMove(InputAction.CallbackContext context)
+    public void OnMoving(InputAction.CallbackContext context)
     {
         _movingVector = context.ReadValue<Vector2>();
     }

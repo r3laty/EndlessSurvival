@@ -1,8 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Shooting : MonoBehaviour
 {
+    [SerializeField] private UnityEvent<int> BulletsCountChanged = new UnityEvent<int>();
+    [Space]
     [SerializeField] private BulletController bulletPrefab;
     [Space]
     [SerializeField] private Transform shotPoint;
@@ -27,6 +30,7 @@ public class Shooting : MonoBehaviour
     }
     private void Update()
     {
+        BulletsCountChanged?.Invoke(bulletsCount);
         if (_shootButton)
         {
             Shoot();
@@ -43,8 +47,6 @@ public class Shooting : MonoBehaviour
     {
         if (!_recharging || _rechargingButton)
         {
-
-
             if (!_shootDelay && bulletsCount > 0)
             {
                 GameObject bullet = Instantiate(bulletPrefab.gameObject, shotPoint.position, Quaternion.identity);
@@ -69,8 +71,8 @@ public class Shooting : MonoBehaviour
     }
     private IEnumerator Recharging()
     {
+        bulletsCount = 0;
         _recharging = true;
-        
         yield return new WaitForSeconds(rechargingTime);
 
         bulletsCount = 10;
