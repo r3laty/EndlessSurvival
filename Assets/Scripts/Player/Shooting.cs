@@ -4,6 +4,18 @@ using UnityEngine.Events;
 
 public class Shooting : MonoBehaviour
 {
+    public int Damage
+    {
+        get
+        {
+            return bulletDamage;
+        }
+        set
+        {
+            bulletDamage = value;
+        }
+    }
+
     [SerializeField] private UnityEvent<int> BulletsCountChanged = new UnityEvent<int>();
     [Space]
     [SerializeField] private BulletController bulletPrefab;
@@ -25,7 +37,7 @@ public class Shooting : MonoBehaviour
     private int _initialDamage;
     private void Start()
     {
-        _initialDamage = bulletDamage;
+        _initialDamage = Damage;
     }
     public void SetShootButton(bool shotButton)
     {
@@ -59,14 +71,14 @@ public class Shooting : MonoBehaviour
             {
                 GameObject bullet = Instantiate(bulletPrefab.gameObject, shotPoint.position, Quaternion.identity);
 
-                bullet.GetComponent<BulletController>().BulletDamage = bulletDamage;
+                bullet.GetComponent<BulletController>().BulletDamage = Damage;
                 bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed * Time.deltaTime);
 
                 bulletsCount--;
 
                 StartCoroutine(DelayBetweenShots());
             }
-            else if (bulletsCount <= 0 )
+            else if (bulletsCount <= 0)
             {
                 StartCoroutine(Recharging());
             }
@@ -89,16 +101,12 @@ public class Shooting : MonoBehaviour
         _recharging = false;
     }
 
-    public IEnumerator DamageBooster(float timeOfBoost, int damageToBoost)
+    public IEnumerator IncreaseDamage(float timeOfBoost, int damageToBoost)
     {
-        bulletDamage += damageToBoost;
-        Debug.Log($"Increase {damageToBoost} damage for {timeOfBoost}");
+        Damage += damageToBoost;
 
-        Debug.Log("Before WaitForSeconds");
         yield return new WaitForSeconds(timeOfBoost);
-        Debug.Log("After WaitForSeconds");
 
-        Debug.Log("Damage booster time end!");
-        bulletDamage = _initialDamage;
+        Damage = _initialDamage;
     }
 }

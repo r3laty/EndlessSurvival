@@ -12,7 +12,6 @@ public class DamageBooster : MonoBehaviour, IBoostable
     }
     public void Execute()
     {
-        Debug.Log($"Damage booster execute");
-        StartCoroutine(_shooting.DamageBooster(timeOfBoost, recoveryAmount));
+        StartCoroutine(_shooting.IncreaseDamage(timeOfBoost, recoveryAmount));
     }
 }

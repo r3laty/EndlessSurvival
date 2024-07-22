@@ -13,8 +13,6 @@ public class ItemPickUpper : MonoBehaviour
 
             if (boostable != null)
             {
-                Debug.Log($"{boostable.GetType()} on trigger enter");
-
                 boostableCollider.enabled = false;
                 boostableMesh.enabled = false;
 

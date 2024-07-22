@@ -3,6 +3,18 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public float MoveSpeed
+    {
+        get
+        {
+            return moveSpeed;
+        }
+        set
+        {
+            moveSpeed = value;
+        }
+    }
+
     [Header("Walk")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed = 0.15f;
@@ -15,7 +27,11 @@ public class Movement : MonoBehaviour
     private bool _isDashing;
     private float _dashCooldownTimer = 0f;
     private bool _dashButton;
-
+    private float _initialSpeed;
+    private void Start()
+    {
+        _initialSpeed = MoveSpeed;
+    }
     public void SetMovingVector(Vector2 movingVector)
     {
         _movingVector = movingVector;
@@ -45,7 +61,7 @@ public class Movement : MonoBehaviour
     }
     private void MoveCharacter()
     {
-        Vector3 movement = new Vector3(_movingVector.x * moveSpeed * Time.deltaTime, 0, _movingVector.y * moveSpeed * Time.deltaTime);
+        Vector3 movement = new Vector3(_movingVector.x * MoveSpeed * Time.deltaTime, 0, _movingVector.y * MoveSpeed * Time.deltaTime);
 
         if (movement != Vector3.zero)
         {
@@ -68,5 +84,13 @@ public class Movement : MonoBehaviour
 
         _isDashing = false;
         _dashCooldownTimer = dashCooldown;
+    }
+    public IEnumerator IncreaseSpeed(float timeOfBoost, float speedToBoost)
+    {
+        MoveSpeed += speedToBoost;
+
+        yield return new WaitForSeconds(timeOfBoost);
+
+        MoveSpeed = _initialSpeed;
     }
 }
