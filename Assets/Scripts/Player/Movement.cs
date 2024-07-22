@@ -45,7 +45,7 @@ public class Movement : MonoBehaviour
     }
     private void MoveCharacter()
     {
-        Vector3 movement = new Vector3(_movingVector.x * moveSpeed * Time.deltaTime, 0, _movingVector.y * moveSpeed * Time.fixedDeltaTime);
+        Vector3 movement = new Vector3(_movingVector.x * moveSpeed * Time.deltaTime, 0, _movingVector.y * moveSpeed * Time.deltaTime);
 
         if (movement != Vector3.zero)
         {

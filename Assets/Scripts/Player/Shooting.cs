@@ -14,12 +14,19 @@ public class Shooting : MonoBehaviour
     [SerializeField] private float rechargingTime;
     [SerializeField] private float bulletSpeed;
     [SerializeField] private int bulletsCount;
+    [SerializeField] private int bulletDamage;
 
     private bool _shootButton;
     private bool _rechargingButton;
 
     private bool _shootDelay;
     private bool _recharging;
+
+    private int _initialDamage;
+    private void Start()
+    {
+        _initialDamage = bulletDamage;
+    }
     public void SetShootButton(bool shotButton)
     {
         _shootButton = shotButton;
@@ -31,6 +38,7 @@ public class Shooting : MonoBehaviour
     private void Update()
     {
         BulletsCountChanged?.Invoke(bulletsCount);
+
         if (_shootButton)
         {
             Shoot();
@@ -50,6 +58,8 @@ public class Shooting : MonoBehaviour
             if (!_shootDelay && bulletsCount > 0)
             {
                 GameObject bullet = Instantiate(bulletPrefab.gameObject, shotPoint.position, Quaternion.identity);
+
+                bullet.GetComponent<BulletController>().BulletDamage = bulletDamage;
                 bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed * Time.deltaTime);
 
                 bulletsCount--;
@@ -77,5 +87,18 @@ public class Shooting : MonoBehaviour
 
         bulletsCount = 10;
         _recharging = false;
+    }
+
+    public IEnumerator DamageBooster(float timeOfBoost, int damageToBoost)
+    {
+        bulletDamage += damageToBoost;
+        Debug.Log($"Increase {damageToBoost} damage for {timeOfBoost}");
+
+        Debug.Log("Before WaitForSeconds");
+        yield return new WaitForSeconds(timeOfBoost);
+        Debug.Log("After WaitForSeconds");
+
+        Debug.Log("Damage booster time end!");
+        bulletDamage = _initialDamage;
     }
 }
