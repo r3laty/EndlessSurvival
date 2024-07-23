@@ -6,9 +6,21 @@ public class BulletController : MonoBehaviour
     [HideInInspector] public int BulletDamage = 0;
     
     [SerializeField] private float timeToDestroy;
-    private void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        StartCoroutine(DestroyAfterTime());
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.TryGetComponent<HealthController>(out HealthController healthController);
+            if (healthController != null)
+            {
+                healthController.DealDamage(BulletDamage);
+            }
+            Destroy(gameObject);
+        }
+        else
+        {
+            StartCoroutine(DestroyAfterTime());
+        }
     }
     private IEnumerator DestroyAfterTime()
     {
