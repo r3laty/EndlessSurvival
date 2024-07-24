@@ -529,7 +529,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2309417493935399450}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803259736}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d75e888564f7ff542911cec3e14bbf01, type: 3}
@@ -541,7 +541,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2309417493935399450}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803259736}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27a06084509e0134f8f81d6e22313b1a, type: 3}
@@ -1083,17 +1083,17 @@ MonoBehaviour:
     - EnemyPrefab: {fileID: 8763166285339174245, guid: 2111093ff042e5244a8e475c600f1f62,
         type: 3}
       Spawnpoint: {fileID: 2014310551}
-      Health: 10
+      Health: 15
       Damage: 5
     - EnemyPrefab: {fileID: 4399365483935337779, guid: 66c64e7a3e81f9342be5bda2c55976e7,
         type: 3}
       Spawnpoint: {fileID: 536207971}
-      Health: 20
+      Health: 25
       Damage: 1
     - EnemyPrefab: {fileID: 5363491182181565568, guid: 73fe8ae3934fd6a4e838c895ce261de4,
         type: 3}
       Spawnpoint: {fileID: 2039526126}
-      Health: 15
+      Health: 10
       Damage: 4
 --- !u!4 &1691474451
 Transform:
@@ -1146,25 +1146,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1803259736 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8689544375937379706, guid: 11577905f775d4a4eaf07d6d463baf48,
-    type: 3}
-  m_PrefabInstance: {fileID: 2309417493935399450}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1803259740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803259736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a41db9636c7579746955110363a8bb19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 100
 --- !u!1 &2014310550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,11 +1357,6 @@ PrefabInstance:
       objectReference: {fileID: 2036242541}
     - target: {fileID: 4877243573268062351, guid: 11577905f775d4a4eaf07d6d463baf48,
         type: 3}
-      propertyPath: bulletDamage
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877243573268062351, guid: 11577905f775d4a4eaf07d6d463baf48,
-        type: 3}
       propertyPath: BulletsCountChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 510008887}
@@ -1442,11 +1418,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8689544375937379706, guid: 11577905f775d4a4eaf07d6d463baf48,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1803259740}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11577905f775d4a4eaf07d6d463baf48, type: 3}
 --- !u!1001 &4889667859116686247
 PrefabInstance:

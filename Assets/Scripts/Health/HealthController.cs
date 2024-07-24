@@ -20,7 +20,7 @@ public class HealthController : MonoBehaviour
     }
     private void CheckIsAlive()
     {
-        if (_health < 0)
+        if (_health <= 0)
         {
             IsDead = true;
             Destroy(gameObject);
