@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6312781003372881489}
   - component: {fileID: 1148596476234289676}
   - component: {fileID: 7279459807577831457}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MagicBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 4041147172662749156}
   - component: {fileID: 9082565184916174469}
   - component: {fileID: 1731894629416203295}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,10 +247,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3221542149858577092, guid: 81f9907d26cc17048b93c9b38d14f9cf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3221542149858577094, guid: 81f9907d26cc17048b93c9b38d14f9cf,
         type: 3}
       propertyPath: m_Name
       value: AcidMagicBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221542149858577094, guid: 81f9907d26cc17048b93c9b38d14f9cf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

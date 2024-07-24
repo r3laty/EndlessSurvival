@@ -13,6 +13,7 @@ public class BulletController : MonoBehaviour
         {
             Debug.Log($"Damage: {BulletDamage}");
             collision.gameObject.TryGetComponent<HealthController>(out HealthController healthController);
+           
             if (healthController != null)
             {
                 healthController.DealDamage(BulletDamage);
