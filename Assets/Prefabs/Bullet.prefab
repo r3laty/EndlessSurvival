@@ -148,3 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletDamage: 10
   timeToDestroy: 5
+  enemyCompareTag: Enemy

@@ -6,10 +6,12 @@ public class BulletController : MonoBehaviour
     [HideInInspector] public int BulletDamage = 0;
     
     [SerializeField] private float timeToDestroy;
+    [SerializeField] private string enemyCompareTag;
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag(enemyCompareTag))
         {
+            Debug.Log($"Damage: {BulletDamage}");
             collision.gameObject.TryGetComponent<HealthController>(out HealthController healthController);
             if (healthController != null)
             {
@@ -24,7 +26,6 @@ public class BulletController : MonoBehaviour
     }
     private IEnumerator DestroyAfterTime()
     {
-        Debug.Log($"Damage: {BulletDamage}");
         yield return new WaitForSecondsRealtime(timeToDestroy);
         Destroy(gameObject);
     }
