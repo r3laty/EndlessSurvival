@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2915114145266851883}
   - component: {fileID: 2956475558127247290}
   - component: {fileID: 2968445745883577624}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1803712905396012366}
   - component: {fileID: 7421018243309978839}
   - component: {fileID: 9042787769588176349}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpeedUpBooster
   m_TagString: Booster
   m_Icon: {fileID: 0}

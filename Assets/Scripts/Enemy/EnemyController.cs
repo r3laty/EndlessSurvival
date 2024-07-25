@@ -3,21 +3,26 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public static event Action<bool> IsAvavailableToAttack;
-
+    //public static event Action<bool> IsAvavailableToAttack;
+    [SerializeField] private Transform bulletSpawnPoint;
+    [Space]
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float distanceToPlayer = 4f;
     [Space]
     [SerializeField] private string movementAnimatorParametr;
     [SerializeField] private string attackAnimatorParametr;
+    [Space]
+    [SerializeField] private GameObject baff;
 
     private Transform _player;
     private Animator _animator;
+    private HealthController _healthController;
     private bool _isMoving = true;
     private void Awake()
     {
         _player = GameObject.FindGameObjectWithTag(TagManager.PlayerTag).transform;
         _animator = GetComponentInChildren<Animator>();
+        _healthController = GetComponent<HealthController>();
     }
     private void Update()
     {
@@ -25,6 +30,7 @@ public class EnemyController : MonoBehaviour
 
         Moving();
         SetAnimations();
+        CheckIsDeath();
     }
     private void SetAnimations()
     {
@@ -46,5 +52,13 @@ public class EnemyController : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, _player.position, moveSpeed * Time.deltaTime);
         }
+    }
+    private void CheckIsDeath()
+    {
+        if(_healthController.IsDead)
+        {
+            Instantiate(baff, bulletSpawnPoint.position, Quaternion.identity);
+            gameObject.SetActive(false);
+        }    
     }
 }

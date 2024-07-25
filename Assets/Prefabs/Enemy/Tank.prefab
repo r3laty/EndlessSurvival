@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3543842433149994868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1720459660236912544}
+  m_Layer: 6
+  m_Name: BioosterSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1720459660236912544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3543842433149994868}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.81, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2441455458814882647}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4399365483935337779
 GameObject:
   m_ObjectHideFlags: 0
@@ -34,6 +65,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7629169905928410977}
+  - {fileID: 1720459660236912544}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5263478365096289222
@@ -48,6 +80,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41db9636c7579746955110363a8bb19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Visualized:
+    m_PersistentCalls:
+      m_Calls: []
+  IsDead: 0
   MaxHealth: 0
 --- !u!114 &5247593623909429942
 MonoBehaviour:
@@ -61,10 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1ad5c7aa03d1e44a4581805b78aa36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpawnPoint: {fileID: 1720459660236912544}
   moveSpeed: 2
   distanceToPlayer: 2
   movementAnimatorParametr: Walk Forward
   attackAnimatorParametr: Melee Attack
+  baff: {fileID: 1904874419324847515, guid: 4f242c40ecf1eb743922e6398af4f681, type: 3}
 --- !u!65 &217049990422056383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -554,7 +592,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 3
-  damage: 2
 --- !u!4 &7629169905928410977 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1205765945396544356, guid: 0bf336439e331a84b9d472dc1847d9d3,

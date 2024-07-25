@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5365793805974655229}
   - component: {fileID: 624278118938285796}
   - component: {fileID: 4330830159533064276}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DamageBooster
   m_TagString: Booster
   m_Icon: {fileID: 0}
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoveryAmount: 50
+  timeOfBoost: 4.5
 --- !u!65 &4330830159533064276
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -79,7 +80,7 @@ GameObject:
   - component: {fileID: 3581525173293156184}
   - component: {fileID: 5148684724036194644}
   - component: {fileID: 6097177426124153756}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

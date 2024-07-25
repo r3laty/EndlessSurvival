@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,11 +5,12 @@ public class HealthController : MonoBehaviour
 {
     public UnityEvent<int> Visualized;
 
-    public bool IsDead { get; set; }
 
+    /*[HideInInspector] */public bool IsDead;
     public int MaxHealth;
 
     private int _health;
+
     private void Start()
     {
         _health = MaxHealth;
@@ -37,7 +37,8 @@ public class HealthController : MonoBehaviour
         if (_health <= 0)
         {
             IsDead = true;
-            Destroy(gameObject);
+            //gameObject.SetActive(false);
+            //Destroy(gameObject);
         }
     }
 }

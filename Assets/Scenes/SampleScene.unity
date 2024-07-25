@@ -229,7 +229,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.8373, y: 3.8373, z: 3.8373}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -489,40 +489,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
---- !u!1 &415282119
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 415282120}
-  m_Layer: 0
-  m_Name: FirstWave
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &415282120
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415282119}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2014310551}
-  - {fileID: 536207971}
-  - {fileID: 2039526126}
-  m_Father: {fileID: 1644833653}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &450805081 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4877243573268062351, guid: 11577905f775d4a4eaf07d6d463baf48,
@@ -693,7 +659,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 415282120}
+  m_Father: {fileID: 1644833653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
@@ -1180,7 +1146,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 415282120}
+  - {fileID: 2039526126}
+  - {fileID: 536207971}
+  - {fileID: 2014310551}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1657960965
@@ -1261,25 +1229,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 79885385}
-  CurrentWave: 0
-  waves:
-  - SpawningFrequency: 4
+  waveData:
+    SpawningFrequency: 8
     Enemies:
-    - EnemyPrefab: {fileID: 8763166285339174245, guid: 2111093ff042e5244a8e475c600f1f62,
-        type: 3}
-      Spawnpoint: {fileID: 2014310551}
-      Health: 15
-      Damage: 5
     - EnemyPrefab: {fileID: 4399365483935337779, guid: 66c64e7a3e81f9342be5bda2c55976e7,
         type: 3}
-      Spawnpoint: {fileID: 536207971}
+      Spawnpoint: {fileID: 2014310551}
       Health: 25
-      Damage: 1
+      Damage: 2
+    - EnemyPrefab: {fileID: 8763166285339174245, guid: 2111093ff042e5244a8e475c600f1f62,
+        type: 3}
+      Spawnpoint: {fileID: 536207971}
+      Health: 16
+      Damage: 5
     - EnemyPrefab: {fileID: 5363491182181565568, guid: 73fe8ae3934fd6a4e838c895ce261de4,
         type: 3}
       Spawnpoint: {fileID: 2039526126}
       Health: 12
-      Damage: 4
+      Damage: 7
 --- !u!4 &1691474451
 Transform:
   m_ObjectHideFlags: 0
@@ -1360,7 +1327,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 415282120}
+  m_Father: {fileID: 1644833653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2036242539
 GameObject:
@@ -1437,7 +1404,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 415282120}
+  m_Father: {fileID: 1644833653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &970172791634110204
 PrefabInstance:
@@ -1456,6 +1423,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DamageBooster
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922685726042425061, guid: e238c4307ded33a47990499cbe56d5c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5365793805974655229, guid: e238c4307ded33a47990499cbe56d5c9,
         type: 3}
@@ -1623,6 +1595,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBooster
       objectReference: {fileID: 0}
+    - target: {fileID: 1904874419324847515, guid: 4f242c40ecf1eb743922e6398af4f681,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4497659155045361413, guid: 4f242c40ecf1eb743922e6398af4f681,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1765,6 +1742,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpeedUpBooster
+      objectReference: {fileID: 0}
+    - target: {fileID: 7791264816331938576, guid: eaadb90285b0c6f4386729611418046d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
