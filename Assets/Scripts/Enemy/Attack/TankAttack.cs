@@ -22,7 +22,7 @@ public class TankAttack : MonoBehaviour, IDamageable
         {
             Debug.Log("Hit on " + hit.collider.name);
 
-            HealthController playerHealth = GetComponent<HealthController>();
+            HealthController playerHealth = hit.collider.GetComponent<HealthController>();
             if (playerHealth != null)
             {
                 playerHealth.DealDamage(_damage);

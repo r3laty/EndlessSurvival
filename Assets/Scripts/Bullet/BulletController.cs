@@ -25,6 +25,24 @@ public class BulletController : MonoBehaviour
             StartCoroutine(DestroyAfterTime());
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(enemyCompareTag))
+        {
+            Debug.Log($"Damage: {BulletDamage}");
+            other.TryGetComponent<HealthController>(out HealthController healthController);
+
+            if (healthController != null)
+            {
+                healthController.DealDamage(BulletDamage);
+            }
+            Destroy(gameObject);
+        }
+        else
+        {
+            StartCoroutine(DestroyAfterTime());
+        }
+    }
     private IEnumerator DestroyAfterTime()
     {
         yield return new WaitForSecondsRealtime(timeToDestroy);

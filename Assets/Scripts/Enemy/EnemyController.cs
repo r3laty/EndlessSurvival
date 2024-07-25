@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     private bool _isMoving = true;
     private void Awake()
     {
-        _player = GameObject.FindGameObjectWithTag("Player").transform;
+        _player = GameObject.FindGameObjectWithTag(TagManager.PlayerTag).transform;
         _animator = GetComponentInChildren<Animator>();
     }
     private void Update()

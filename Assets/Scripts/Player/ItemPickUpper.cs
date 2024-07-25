@@ -4,7 +4,7 @@ public class ItemPickUpper : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Booster"))
+        if (other.gameObject.CompareTag(TagManager.BoosterTag))
         {
             other.gameObject.TryGetComponent<IBoostable>(out IBoostable boostable);
             

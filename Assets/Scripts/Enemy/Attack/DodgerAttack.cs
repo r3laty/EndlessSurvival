@@ -22,9 +22,10 @@ public class DodgerAttack : MonoBehaviour, IDamageable
         {
             Debug.Log("Hit on " + hit.collider.name);
 
-            HealthController playerHealth = GetComponent<HealthController>();
+            HealthController playerHealth = hit.collider.GetComponent<HealthController>();
             if (playerHealth != null)
             {
+                Debug.Log($"{gameObject.name} get player health");
                 playerHealth.DealDamage(_damage);
             }
         }

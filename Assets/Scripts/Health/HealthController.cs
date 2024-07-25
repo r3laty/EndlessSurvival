@@ -1,7 +1,11 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HealthController : MonoBehaviour
 {
+    public UnityEvent<int> Visualized;
+
     public bool IsDead { get; set; }
 
     public int MaxHealth;
@@ -15,8 +19,18 @@ public class HealthController : MonoBehaviour
     public void DealDamage(int damage)
     {
         _health -= damage;
-        //invoke health visualizer
+        Visualized?.Invoke(_health);
         CheckIsAlive();
+    }
+    public void RestoreHealth(int amount)
+    {
+        _health += amount;
+
+        if(_health > amount)
+        {
+            _health = MaxHealth;
+        }
+        Visualized?.Invoke(_health);
     }
     private void CheckIsAlive()
     {
