@@ -1,8 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using FMODUnity;
 
 public class ItemPickUpper : MonoBehaviour
 {
+    [SerializeField] private EventReference collectedSound;
+    [Space]
     [SerializeField] private float pickUpDelay = 2;
 
     private bool _canPickUp = true;
@@ -12,6 +15,7 @@ public class ItemPickUpper : MonoBehaviour
         {
             if (_canPickUp)
             {
+                AudioManager.Instance.PlayOneShot(collectedSound, this.transform.position);                 
                 other.gameObject.TryGetComponent<IBoostable>(out IBoostable boostable);
 
                 var boostableCollider = other.gameObject.GetComponent<BoxCollider>();

@@ -1,3 +1,5 @@
+using FMODUnity;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,6 +17,8 @@ public class Shooting : MonoBehaviour
     [SerializeField] private float bulletSpeed;
     [SerializeField] private int bulletsCount;
     [SerializeField] private int bulletDamage;
+    [Space]
+    [SerializeField] private EventReference shotSound;
 
     private bool _shootButton;
     private bool _rechargingButton;
@@ -55,6 +59,7 @@ public class Shooting : MonoBehaviour
     {
         if (!_recharging || _rechargingButton)
         {
+            PlayShootSound();
             if (!_shootDelay && bulletsCount > 0)
             {
                 GameObject bullet = Instantiate(bulletPrefab.gameObject, shotPoint.position, Quaternion.identity);
@@ -72,6 +77,12 @@ public class Shooting : MonoBehaviour
             }
         }
     }
+
+    private void PlayShootSound()
+    {
+        AudioManager.Instance.PlayOneShot(shotSound, this.transform.position);
+    }
+
     private IEnumerator DelayBetweenShots()
     {
         _shootDelay = true;
