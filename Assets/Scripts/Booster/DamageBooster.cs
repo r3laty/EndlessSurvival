@@ -8,7 +8,7 @@ public class DamageBooster : MonoBehaviour, IBoostable
     private Shooting _shooting;
     private void Awake()
     {
-        _shooting = GameObject.FindGameObjectWithTag(TagManager.PlayerTag).GetComponent<Shooting>();
+        _shooting = GameObject.FindWithTag(TagManager.PlayerTag).GetComponent<Shooting>();
     }
     public void Execute()
     {

@@ -4,18 +4,6 @@ using UnityEngine.Events;
 
 public class Shooting : MonoBehaviour
 {
-    public int Damage
-    {
-        get
-        {
-            return bulletDamage;
-        }
-        set
-        {
-            bulletDamage = value;
-        }
-    }
-
     [SerializeField] private UnityEvent<int> BulletsCountChanged = new UnityEvent<int>();
     [Space]
     [SerializeField] private BulletController bulletPrefab;
@@ -37,7 +25,7 @@ public class Shooting : MonoBehaviour
     private int _initialDamage;
     private void Start()
     {
-        _initialDamage = Damage;
+        _initialDamage = bulletDamage;
     }
     public void SetShootButton(bool shotButton)
     {
@@ -71,7 +59,7 @@ public class Shooting : MonoBehaviour
             {
                 GameObject bullet = Instantiate(bulletPrefab.gameObject, shotPoint.position, Quaternion.identity);
 
-                bullet.GetComponent<BulletController>().BulletDamage = Damage;
+                bullet.GetComponent<BulletController>().BulletDamage = bulletDamage;
                 bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed * Time.deltaTime);
 
                 bulletsCount--;
@@ -103,10 +91,10 @@ public class Shooting : MonoBehaviour
 
     public IEnumerator IncreaseDamage(float timeOfBoost, int damageToBoost)
     {
-        Damage += damageToBoost;
+        bulletDamage += damageToBoost;
 
         yield return new WaitForSeconds(timeOfBoost);
 
-        Damage = _initialDamage;
+        bulletDamage = _initialDamage;
     }
 }

@@ -1,12 +1,17 @@
 using System.Collections;
 using UnityEngine;
+using Zenject;
 
 public class WaveSpawner : MonoBehaviour
 {
-    [SerializeField] private Transform player;
-
     [SerializeField] private WaveData waveData = new WaveData();
 
+    private Transform _player;
+    [Inject]
+    public void Init(Transform playerTransform)
+    {
+        _player = playerTransform;
+    }
     private void Start()
     {
         StartCoroutine(SpawnWaves());
@@ -20,7 +25,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 var instatiatedEnemy = Instantiate(enemy.EnemyPrefab, enemy.Spawnpoint.position, Quaternion.identity);
 
-                instatiatedEnemy.GetComponent<Transform>().LookAt(player.position);
+                instatiatedEnemy.GetComponent<EnemyController>().Player = _player;
                 instatiatedEnemy.GetComponent<HealthController>().MaxHealth = enemy.Health;
                 instatiatedEnemy.GetComponentInChildren<IDamageable>().Damage = enemy.Damage;
             }
