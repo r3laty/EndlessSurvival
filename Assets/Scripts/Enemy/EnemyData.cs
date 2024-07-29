@@ -8,4 +8,6 @@ public class EnemyData
 
     public int Health;
     public int Damage;
+
+    public int EnemyId;
 }

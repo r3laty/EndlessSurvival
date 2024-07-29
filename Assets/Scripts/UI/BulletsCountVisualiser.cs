@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class BulletsCountVisualizer : MonoBehaviour
+public class BulletsCountVisualiser : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI bulletsCount;
     public void OnBulletCountUpdate(int count)

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class HealthCountVisualizer : MonoBehaviour
+public class HealthCountVisualiser : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI healthCount;
     public void OnHealthCountUpdate(int count)

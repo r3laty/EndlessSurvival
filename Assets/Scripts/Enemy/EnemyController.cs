@@ -21,6 +21,7 @@ public class EnemyController : MonoBehaviour
     {
         _animator = GetComponentInChildren<Animator>();
         _healthController = GetComponent<HealthController>();
+        _healthController.Dead += OnDeath;
     }
     private void Update()
     {
@@ -28,7 +29,6 @@ public class EnemyController : MonoBehaviour
 
         Moving();
         SetAnimations();
-        CheckIsDeath();
     }
     private void SetAnimations()
     {
@@ -51,12 +51,13 @@ public class EnemyController : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, Player.position, moveSpeed * Time.deltaTime);
         }
     }
-    private void CheckIsDeath()
+    private void OnDeath()
     {
-        if(_healthController.IsDead)
-        {
-            var instatiatedBaff = Instantiate(baff, bulletSpawnPoint.position, Quaternion.identity);
-            gameObject.SetActive(false);
-        }    
+        var instatiatedBaff = Instantiate(baff, bulletSpawnPoint.position, Quaternion.identity);
+        gameObject.SetActive(false);
+    }
+    private void OnDisable()
+    {
+        _healthController.Dead -= OnDeath;
     }
 }

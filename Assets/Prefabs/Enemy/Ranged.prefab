@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 7346638078589559922}
   - component: {fileID: 315097406902313450}
   m_Layer: 6
-  m_Name: RangedAttack
+  m_Name: Ranged
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1ad5c7aa03d1e44a4581805b78aa36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
   bulletSpawnPoint: {fileID: 6689888793739527964}
   moveSpeed: 1.8
   distanceToPlayer: 4

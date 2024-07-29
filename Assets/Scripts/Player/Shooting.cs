@@ -1,5 +1,4 @@
 using FMODUnity;
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -27,9 +26,11 @@ public class Shooting : MonoBehaviour
     private bool _recharging;
 
     private int _initialDamage;
+    private int _initialCount;
     private void Start()
     {
         _initialDamage = bulletDamage;
+        _initialCount = bulletsCount;
     }
     public void SetShootButton(bool shotButton)
     {
@@ -59,9 +60,10 @@ public class Shooting : MonoBehaviour
     {
         if (!_recharging || _rechargingButton)
         {
-            PlayShootSound();
             if (!_shootDelay && bulletsCount > 0)
             {
+                PlayShootSound();
+
                 GameObject bullet = Instantiate(bulletPrefab.gameObject, shotPoint.position, Quaternion.identity);
 
                 bullet.GetComponent<BulletController>().BulletDamage = bulletDamage;
@@ -107,5 +109,9 @@ public class Shooting : MonoBehaviour
         yield return new WaitForSeconds(timeOfBoost);
 
         bulletDamage = _initialDamage;
+    }
+    public void ResetBulletCound()
+    {
+        bulletsCount = _initialCount;
     }
 }

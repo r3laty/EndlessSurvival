@@ -5,11 +5,13 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] private Movement playerMovement;
     [SerializeField] private Shooting playerShooting;
+    [SerializeField] private PauseController pause;
 
     private Vector2 _movingVector;
     private bool _dashButton;
     private bool _shootButton;
     private bool _rechargingButton;
+    private bool _pauseButton;
     private void Update()
     {
         playerMovement.SetMovingVector(_movingVector);
@@ -17,6 +19,8 @@ public class InputManager : MonoBehaviour
 
         playerShooting.SetShootButton(_shootButton);
         playerShooting.SetRechargingButton(_rechargingButton);
+
+        pause.SetPauseButton(_pauseButton);
     }
     public void OnMoving(InputAction.CallbackContext context)
     {
@@ -53,6 +57,17 @@ public class InputManager : MonoBehaviour
         else if (context.phase == InputActionPhase.Canceled)
         {
             _rechargingButton = false;
+        }
+    }
+    public void OnPausing(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            _pauseButton = context.ReadValue<float>() > 0.5f;
+        }
+        else if (context.phase == InputActionPhase.Canceled)
+        {
+            _pauseButton = false;
         }
     }
 }

@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class HealthController : MonoBehaviour
 {
     public UnityEvent<int> Visualized;
-
+    public event Action Dead;
 
     /*[HideInInspector] */public bool IsDead;
     public int MaxHealth;
@@ -15,6 +16,14 @@ public class HealthController : MonoBehaviour
     {
         _health = MaxHealth;
         Debug.Log($"{gameObject.name} has {_health} hp");
+    }
+    private void CheckIsAlive()
+    {
+        if (_health <= 0)
+        {
+            IsDead = true;
+            Dead?.Invoke();
+        }
     }
     public void DealDamage(int damage)
     {
@@ -32,13 +41,8 @@ public class HealthController : MonoBehaviour
         }
         Visualized?.Invoke(_health);
     }
-    private void CheckIsAlive()
+    public void ResetHealth()
     {
-        if (_health <= 0)
-        {
-            IsDead = true;
-            //gameObject.SetActive(false);
-            //Destroy(gameObject);
-        }
+        _health = MaxHealth;
     }
 }
