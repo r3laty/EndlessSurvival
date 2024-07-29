@@ -11,7 +11,6 @@ public class BulletController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(enemyCompareTag))
         {
-            Debug.Log($"Damage: {BulletDamage}");
             collision.gameObject.TryGetComponent<HealthController>(out HealthController healthController);
            
             if (healthController != null)
@@ -29,7 +28,6 @@ public class BulletController : MonoBehaviour
     {
         if (other.CompareTag(enemyCompareTag))
         {
-            Debug.Log($"Damage: {BulletDamage}");
             other.TryGetComponent<HealthController>(out HealthController healthController);
 
             if (healthController != null)

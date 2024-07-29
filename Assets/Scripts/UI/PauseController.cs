@@ -7,6 +7,8 @@ public class PauseController : MonoBehaviour
     [Space]
     [SerializeField] private GameObject volumeControlMenu;
 
+    [Inject] private Shooting _shooting;
+
     private GameOverController _gameOverController;
 
     private bool _pauseButton;
@@ -38,6 +40,7 @@ public class PauseController : MonoBehaviour
     }
     private void PauseGame()
     {
+        _shooting.enabled = false;
         volumeControlMenu.gameObject.SetActive(false);
         Time.timeScale = 0;
         pauseMenu.gameObject.SetActive(true);
@@ -45,6 +48,7 @@ public class PauseController : MonoBehaviour
     }
     private void ResumeGame()
     {
+        _shooting.enabled = true;
         Time.timeScale = 1;
         pauseMenu.gameObject.SetActive(false);
         _isPaused = false;
@@ -79,7 +83,7 @@ public class PauseController : MonoBehaviour
     /// </summary>
     public void OnLeaveButton()
     {
-        
+        _gameOverController.OnLeaveButton();
     }
 
     /// <summary>

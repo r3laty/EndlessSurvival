@@ -20,12 +20,9 @@ public class DodgerAttack : MonoBehaviour, IDamageable
 
         if (Physics.Raycast(origin, direction, out RaycastHit hit, attackRange))
         {
-            Debug.Log("Hit on " + hit.collider.name);
-
             HealthController playerHealth = hit.collider.GetComponent<HealthController>();
             if (playerHealth != null)
             {
-                Debug.Log($"{gameObject.name} get player health");
                 playerHealth.DealDamage(_damage);
             }
         }

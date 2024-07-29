@@ -7,7 +7,7 @@ public class HealthController : MonoBehaviour
     public UnityEvent<int> Visualized;
     public event Action Dead;
 
-    /*[HideInInspector] */public bool IsDead;
+    [HideInInspector] public bool IsDead;
     public int MaxHealth;
 
     private int _health;
@@ -15,7 +15,6 @@ public class HealthController : MonoBehaviour
     private void Start()
     {
         _health = MaxHealth;
-        Debug.Log($"{gameObject.name} has {_health} hp");
     }
     private void CheckIsAlive()
     {
