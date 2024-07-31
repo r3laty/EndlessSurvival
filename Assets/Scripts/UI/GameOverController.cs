@@ -1,6 +1,7 @@
 using UnityEngine;
 using Zenject;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
@@ -22,21 +23,22 @@ public class GameOverController : MonoBehaviour
     /// </summary>
     public void ResetAll()
     {
-        foreach (var enemy in _waveSpawner.InstatiatedEnemies.ToList())
-        {
-            Destroy(enemy);
-            _waveSpawner.InstatiatedEnemies.Remove(enemy);
-        }
+        //foreach (var enemy in _waveSpawner.InstatiatedEnemies.ToList())
+        //{
+        //    Destroy(enemy);
+        //    _waveSpawner.InstatiatedEnemies.Remove(enemy);
+        //}
         
-        _player.position = Vector3.zero;
+        //_player.position = Vector3.zero;
 
-        _waveSpawner.SetDefaultEnemySettings();
+        //_waveSpawner.SetDefaultEnemySettings();
 
-        _playerHealth.ResetHealth();
+        //_playerHealth.ResetHealth();
 
-        _playerShooting.ResetBulletCound();
+        //_playerShooting.ResetBulletCound();
 
-        deathMenu.gameObject.SetActive(false);
+        //deathMenu.gameObject.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         Time.timeScale = 1;
     }
@@ -46,8 +48,6 @@ public class GameOverController : MonoBehaviour
     /// </summary>
     public void OnLeaveButton()
     {
-        mainMenu.gameObject.SetActive(true);
-        inGameMenu.gameObject.SetActive(false);
-        Time.timeScale = 0;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

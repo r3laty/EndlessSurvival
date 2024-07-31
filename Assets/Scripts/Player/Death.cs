@@ -4,6 +4,7 @@ using Zenject;
 public class Death : MonoBehaviour
 {
     [SerializeField] private Canvas deathMenu;
+    [SerializeField] private GameObject body;
 
     [Inject] private Shooting _shooting;
 
@@ -17,6 +18,7 @@ public class Death : MonoBehaviour
     private void OnDeath()
     {
         _shooting.enabled = false;
+        body.SetActive(false);
         deathMenu.gameObject.SetActive(true);
         Time.timeScale = 0;
     }

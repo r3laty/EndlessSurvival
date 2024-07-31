@@ -18,13 +18,42 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
+            InitializeAudio();
         }
-
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void Update()
+    {
+        UpdateBusVolumes();
+        SaveVolumeSettings();
+    }
+    private void InitializeAudio()
+    {
         _masterBus = RuntimeManager.GetBus("bus:/");
         _shotSoundBus = RuntimeManager.GetBus("bus:/Shot");
         _boosterSoundBus = RuntimeManager.GetBus("bus:/Booster");
+
+        LoadVolumeSettings();
     }
-    private void Update()
+    private void LoadVolumeSettings()
+    {
+        MasterVolume = PlayerPrefs.GetFloat("MasterVolume", 1);
+        ShotVolume = PlayerPrefs.GetFloat("ShotVolume", 1);
+        BoosterVolume = PlayerPrefs.GetFloat("BoosterVolume", 1);
+        UpdateBusVolumes();
+    }
+
+    private void SaveVolumeSettings()
+    {
+        PlayerPrefs.SetFloat("MasterVolume", MasterVolume);
+        PlayerPrefs.SetFloat("ShotVolume", ShotVolume);
+        PlayerPrefs.SetFloat("BoosterVolume", BoosterVolume);
+    }
+    private void UpdateBusVolumes()
     {
         _masterBus.setVolume(MasterVolume);
         _shotSoundBus.setVolume(ShotVolume);
