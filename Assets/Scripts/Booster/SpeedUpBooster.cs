@@ -14,4 +14,14 @@ public class SpeedUpBooster : MonoBehaviour, IBoostable
     {
         StartCoroutine(_movement.IncreaseSpeed(timeOfBoost, recoveryAmount));
     }
+
+    public string GetName()
+    {
+        return "Speed up";
+    }
+
+    public float GetDuration()
+    {
+        return timeOfBoost;
+    }
 }

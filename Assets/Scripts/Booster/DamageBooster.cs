@@ -5,6 +5,7 @@ public class DamageBooster : MonoBehaviour, IBoostable
     [SerializeField] private int recoveryAmount;
     [SerializeField] private float timeOfBoost = 4.5f;
 
+
     private Shooting _shooting;
     private void Awake()
     {
@@ -13,5 +14,15 @@ public class DamageBooster : MonoBehaviour, IBoostable
     public void Execute()
     {
         StartCoroutine(_shooting.IncreaseDamage(timeOfBoost, recoveryAmount));
+    }
+
+    public string GetName()
+    {
+        return "Damage";
+    }
+
+    public float GetDuration()
+    {
+        return timeOfBoost;
     }
 }

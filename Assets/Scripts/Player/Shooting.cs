@@ -82,7 +82,10 @@ public class Shooting : MonoBehaviour
 
     private void PlayShootSound()
     {
-        AudioManager.Instance.PlayOneShot(shotSound, this.transform.position);
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayOneShot(shotSound, this.transform.position);
+        }
     }
 
     private IEnumerator DelayBetweenShots()

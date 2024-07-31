@@ -14,4 +14,14 @@ public class HealthBooster : MonoBehaviour, IBoostable
     {
         _playerHealth.RestoreHealth(recoveryAmount);
     }
+
+    public string GetName()
+    {
+        return "Health";
+    }
+
+    public float GetDuration()
+    {
+        return 0;
+    }
 }

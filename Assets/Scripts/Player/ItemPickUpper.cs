@@ -1,9 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using FMODUnity;
+using System;
 
 public class ItemPickUpper : MonoBehaviour
 {
+    public event Action<IBoostable> BoostCreated;
+
     [SerializeField] private EventReference collectedSound;
     [Space]
     [SerializeField] private float pickUpDelay = 2;
@@ -15,7 +18,10 @@ public class ItemPickUpper : MonoBehaviour
         {
             if (_canPickUp)
             {
-                AudioManager.Instance.PlayOneShot(collectedSound, this.transform.position);                 
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlayOneShot(collectedSound, this.transform.position);
+                }
                 other.gameObject.TryGetComponent<IBoostable>(out IBoostable boostable);
 
                 var boostableCollider = other.gameObject.GetComponent<BoxCollider>();
@@ -26,6 +32,7 @@ public class ItemPickUpper : MonoBehaviour
                     boostableCollider.enabled = false;
                     boostableMesh.enabled = false;
 
+                    BoostCreated?.Invoke(boostable);
                     boostable.Execute();
                 }
             }

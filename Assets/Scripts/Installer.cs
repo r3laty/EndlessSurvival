@@ -8,6 +8,7 @@ public class Installer : MonoInstaller
     [SerializeField] private Shooting playerShoot;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private WaveSpawner waveSpawner;
+    [SerializeField] private ItemPickUpper itemPick;
     public override void InstallBindings()
     {
         Container.Bind<HealthController>().FromInstance(playerHealth).AsSingle();
@@ -15,5 +16,6 @@ public class Installer : MonoInstaller
         Container.Bind<Shooting>().FromInstance(playerShoot).AsSingle();
         Container.Bind<Transform>().FromInstance(playerTransform).AsSingle();
         Container.Bind<WaveSpawner>().FromInstance(waveSpawner).AsSingle();
+        Container.Bind<ItemPickUpper>().FromInstance(itemPick).AsSingle();
     }
 }
