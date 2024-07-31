@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,15 @@ using Zenject;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public event Action<int> WaveSpawned;
+
     [HideInInspector] public List<GameObject> InstatiatedEnemies = new List<GameObject>();
 
     [SerializeField] private WaveData waveData = new WaveData();
 
     [Inject] private Transform _player;
 
+    private int _wavesCount = 0;
     private void Start()
     {
         StartCoroutine(SpawnWaves());
@@ -30,7 +34,8 @@ public class WaveSpawner : MonoBehaviour
 
                 InstatiatedEnemies.Add(instatiatedEnemy);
             }
-
+            _wavesCount++;
+            WaveSpawned?.Invoke(_wavesCount);
             yield return new WaitForSeconds(waveData.SpawningFrequency);
 
             foreach (var enemy in waveData.Enemies)

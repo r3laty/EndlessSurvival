@@ -7,11 +7,8 @@ public class VolumeController : MonoBehaviour
     [SerializeField] private Slider boostSoundSlider;
     private void Start()
     {
-        Debug.Log("Start method");
         if (AudioManager.Instance != null)
         {
-            Debug.Log("AudioManager != null");
-
             shotSoundSlider.value = AudioManager.Instance.ShotVolume;
             boostSoundSlider.value = AudioManager.Instance.BoosterVolume;
 
