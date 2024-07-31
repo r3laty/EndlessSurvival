@@ -5,6 +5,8 @@ using System;
 
 public class ItemPickUpper : MonoBehaviour
 {
+    public int PickUpedCount => _pickUpedCount;
+
     public event Action<IBoostable> BoostCreated;
 
     [SerializeField] private EventReference collectedSound;
@@ -12,6 +14,7 @@ public class ItemPickUpper : MonoBehaviour
     [SerializeField] private float pickUpDelay = 2;
 
     private bool _canPickUp = true;
+    private int _pickUpedCount = 0;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag(TagManager.BoosterTag))
@@ -34,6 +37,8 @@ public class ItemPickUpper : MonoBehaviour
 
                     BoostCreated?.Invoke(boostable);
                     boostable.Execute();
+
+                    _pickUpedCount++;
                 }
             }
             StartCoroutine(BoostersDelay());

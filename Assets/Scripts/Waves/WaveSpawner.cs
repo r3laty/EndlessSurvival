@@ -6,6 +6,7 @@ using Zenject;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public int WavesCount => _wavesCount;
     public event Action<int> WaveSpawned;
 
     [HideInInspector] public List<GameObject> InstatiatedEnemies = new List<GameObject>();
