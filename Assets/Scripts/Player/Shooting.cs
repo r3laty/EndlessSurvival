@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class Shooting : MonoBehaviour
 {
+    public int InitialBulletCount => _initialBulletCount;
+
     [SerializeField] private UnityEvent<int> BulletsCountChanged = new UnityEvent<int>();
     [Space]
     [SerializeField] private BulletController bulletPrefab;
@@ -26,11 +28,11 @@ public class Shooting : MonoBehaviour
     private bool _recharging;
 
     private int _initialDamage;
-    private int _initialCount;
+    private int _initialBulletCount;
     private void Start()
     {
         _initialDamage = bulletDamage;
-        _initialCount = bulletsCount;
+        _initialBulletCount = bulletsCount;
     }
     public void SetShootButton(bool shotButton)
     {
@@ -115,6 +117,6 @@ public class Shooting : MonoBehaviour
     }
     public void ResetBulletCound()
     {
-        bulletsCount = _initialCount;
+        bulletsCount = _initialBulletCount;
     }
 }
