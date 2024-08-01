@@ -10,7 +10,7 @@ public class HealthCountVisualiser : MonoBehaviour
 
     private void Start()
     {
-        UpdateText(_playerHealth.MaxHealth);
+        UpdateText(_playerHealth.MaxHealthProperty);
     }
     public void OnHealthCountUpdate(int count)
     {

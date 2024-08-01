@@ -4,6 +4,8 @@ using UnityEngine.Events;
 
 public class HealthController : MonoBehaviour
 {
+    public int MaxHealthProperty => MaxHealth;
+
     public UnityEvent<int> Visualized;
     public event Action Dead;
 
