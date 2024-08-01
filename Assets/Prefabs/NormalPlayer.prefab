@@ -451,8 +451,8 @@ MonoBehaviour:
   delayBetweenShots: 1
   rechargingTime: 3.5
   bulletSpeed: 100000
-  bulletsCount: 12
-  bulletDamage: 10
+  bulletsCount: 10
+  bulletDamage: 8
   shotSound:
     Guid:
       Data1: -370518853

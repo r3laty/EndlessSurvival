@@ -7,6 +7,10 @@ public class BulletController : MonoBehaviour
     
     [SerializeField] private float timeToDestroy;
     [SerializeField] private string enemyCompareTag;
+    private void Start()
+    {
+        Debug.Log($"Bullet danage {BulletDamage}");
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag(enemyCompareTag))

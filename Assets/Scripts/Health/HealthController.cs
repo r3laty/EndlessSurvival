@@ -8,11 +8,12 @@ public class HealthController : MonoBehaviour
     public event Action Dead;
 
     [HideInInspector] public bool IsDead;
+
     public int MaxHealth;
 
     private int _health;
 
-    private void Start()
+    private void Awake()
     {
         _health = MaxHealth;
     }

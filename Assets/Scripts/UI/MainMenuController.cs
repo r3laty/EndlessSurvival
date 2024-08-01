@@ -5,6 +5,7 @@ using Zenject;
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField] private GameObject volumeSettingsMenu;
+    [SerializeField] private GameObject characterSelectionsMenu;
     [SerializeField] private GameObject mainMenu;
     /// <summary>
     /// Method on button
@@ -20,6 +21,14 @@ public class MainMenuController : MonoBehaviour
     {
         mainMenu.SetActive(false);
         volumeSettingsMenu.SetActive(true);
+    }
+    /// <summary>
+    /// Method on button
+    /// </summary>
+    public void OnCharacterSelectionButton()
+    {
+        mainMenu.SetActive(false);
+        characterSelectionsMenu.SetActive(true);
     }
     /// <summary>
     /// Method on button

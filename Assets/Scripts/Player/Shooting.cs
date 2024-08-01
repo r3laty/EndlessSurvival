@@ -103,7 +103,7 @@ public class Shooting : MonoBehaviour
         _recharging = true;
         yield return new WaitForSeconds(rechargingTime);
 
-        bulletsCount = 10;
+        bulletsCount = _initialBulletCount;
         _recharging = false;
     }
 

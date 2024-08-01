@@ -3,8 +3,16 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    [Header("Fast")]
     [SerializeField] private Movement playerMovement;
     [SerializeField] private Shooting playerShooting;
+    [Header("Strong")]
+    [SerializeField] private Movement player2Movement;
+    [SerializeField] private Shooting player2Shooting;
+    [Header("Normal")]
+    [SerializeField] private Movement player3Movement;
+    [SerializeField] private Shooting player3Shooting;
+    [Space]
     [SerializeField] private PauseController pause;
 
     private Vector2 _movingVector;
@@ -14,11 +22,36 @@ public class InputManager : MonoBehaviour
     private bool _pauseButton;
     private void Update()
     {
-        playerMovement.SetMovingVector(_movingVector);
-        playerMovement.SetDashBool(_dashButton);
-
-        playerShooting.SetShootButton(_shootButton);
-        playerShooting.SetRechargingButton(_rechargingButton);
+        if (playerMovement != null)
+        {
+            playerMovement.SetMovingVector(_movingVector);
+            playerMovement.SetDashBool(_dashButton);
+        }
+        if (player2Movement != null)
+        {
+            player2Movement.SetMovingVector(_movingVector);
+            player2Movement.SetDashBool(_dashButton);
+        }
+        if (player3Movement != null)
+        {
+            player3Movement.SetMovingVector(_movingVector);
+            player3Movement.SetDashBool(_dashButton);
+        }
+        if (playerShooting != null)
+        {
+            playerShooting.SetShootButton(_shootButton);
+            playerShooting.SetRechargingButton(_rechargingButton);
+        }
+        if (player2Shooting != null)
+        {
+            player2Shooting.SetShootButton(_shootButton);
+            player2Shooting.SetRechargingButton(_rechargingButton);
+        }
+        if (player3Shooting != null)
+        {
+            player3Shooting.SetShootButton(_shootButton);
+            player3Shooting.SetRechargingButton(_rechargingButton);
+        }
 
         pause.SetPauseButton(_pauseButton);
     }

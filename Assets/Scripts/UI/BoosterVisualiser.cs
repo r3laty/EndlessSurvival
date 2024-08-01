@@ -11,6 +11,7 @@ public class BoosterVisualiser : MonoBehaviour
     [Inject] private ItemPickUpper _pickUpper;
 
     private IBoostable _currentBooster;
+
     private void OnEnable()
     {
         _pickUpper.BoostCreated += OnBoostCreating;

@@ -7,16 +7,17 @@ public class HealthCountVisualiser : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthCount;
 
     [Inject] private HealthController _playerHealth;
+
     private void Start()
     {
-        UpdateText(_playerHealth.MaxHealth, _playerHealth.MaxHealth);
+        UpdateText(_playerHealth.MaxHealth);
     }
     public void OnHealthCountUpdate(int count)
     {
-        UpdateText(count, _playerHealth.MaxHealth);
+        UpdateText(count);
     }
-    private void UpdateText(int current, int max)
+    private void UpdateText(int current)
     {
-        healthCount.text = $"{current.ToString()}/{max.ToString()}";
+        healthCount.text = $"{current.ToString()}";
     }
 }

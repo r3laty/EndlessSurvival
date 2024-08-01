@@ -12,9 +12,6 @@ public class WaveSpawner : MonoBehaviour
     [HideInInspector] public List<GameObject> InstatiatedEnemies = new List<GameObject>();
 
     [SerializeField] private WaveData waveData = new WaveData();
-
-    [Inject] private Transform _player;
-
     private int _wavesCount = 0;
     private void Start()
     {
@@ -29,7 +26,6 @@ public class WaveSpawner : MonoBehaviour
             {
                 var instatiatedEnemy = Instantiate(enemy.EnemyPrefab, enemy.Spawnpoint.position, Quaternion.identity);
 
-                instatiatedEnemy.GetComponent<EnemyController>().Player = _player;
                 instatiatedEnemy.GetComponent<HealthController>().MaxHealth = enemy.Health;
                 instatiatedEnemy.GetComponentInChildren<IDamageable>().Damage = enemy.Damage;
 

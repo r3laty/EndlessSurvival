@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     private bool _isMoving = true;
     private void Awake()
     {
+        Player = GameObject.FindWithTag(TagManager.PlayerTag).transform;
         _animator = GetComponentInChildren<Animator>();
         _healthController = GetComponent<HealthController>();
         _healthController.Dead += OnDeath;
