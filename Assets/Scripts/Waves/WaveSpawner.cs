@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -39,6 +38,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 enemy.Health++;
                 enemy.Damage++;
+                enemy.Spawnpoint.position = new Vector3(UnityEngine.Random.Range(-22, 22), 3, UnityEngine.Random.Range(23.28f, -23.28f));
             }
         }
     }
