@@ -4,12 +4,6 @@ using Zenject;
 
 public class Installer : MonoInstaller
 {
-    //[SerializeField] private HealthController playerHealth;
-    //[SerializeField] private Movement playerMove;
-    //[SerializeField] private Shooting playerShoot;
-    //[SerializeField] private Transform playerTransform;
-    //[SerializeField] private ItemPickUpper itemPick;
-
     [SerializeField] private List<GameObject> characters = new List<GameObject>();
 
     [SerializeField] private WaveSpawner waveSpawner;
@@ -17,12 +11,10 @@ public class Installer : MonoInstaller
     [SerializeField] private CharacterLoader characterLoader;
 
     private int _selectedCharacterIndex;
-    private void Start()
-    {
-        _selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
-    }
     public override void InstallBindings()
     {
+        _selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
+
         var currentCharacter = characters[_selectedCharacterIndex];
 
         Container.Bind<HealthController>().FromInstance(currentCharacter.GetComponent<HealthController>()).AsSingle();

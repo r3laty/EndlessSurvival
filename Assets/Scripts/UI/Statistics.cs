@@ -9,6 +9,7 @@ public class Statistics : MonoBehaviour
 
     private string _wavesCountTextPattern = "Waves count: "; 
     private string _bonusCountTextPattern = "Bonus count: "; 
+
     [Inject] private WaveSpawner _waveSpawner;
     [Inject] private ItemPickUpper _pickUpper;
     [Inject] private Shooting _playerShooting;

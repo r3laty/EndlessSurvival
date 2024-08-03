@@ -1,6 +1,4 @@
 using UnityEngine;
-using Zenject;
-using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
@@ -24,6 +22,7 @@ public class GameOverController : MonoBehaviour
     public void OnLeaveButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        Time.timeScale = 1;
     }
 
     /// <summary>

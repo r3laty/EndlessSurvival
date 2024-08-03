@@ -4082,8 +4082,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4c9601baa33b94fa5f02baf4b476ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statisticsMenu: {fileID: 0}
-  gameoverMenu: {fileID: 0}
+  statisticsMenu: {fileID: 1940340122}
+  gameoverMenu: {fileID: 796364356}
 --- !u!114 &1304842956
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Zenject;
 
@@ -6,6 +7,8 @@ public class PauseController : MonoBehaviour
     [SerializeField] private Canvas pauseMenu;
     [Space]
     [SerializeField] private GameObject volumeControlMenu;
+    [Space]
+    [SerializeField] private float pauseDelay = 0.5f;
 
     [Inject] private Shooting _shooting;
 
@@ -13,6 +16,7 @@ public class PauseController : MonoBehaviour
 
     private bool _pauseButton;
     private bool _isPaused;
+    private bool _canTogglePause = true;
     private void Awake()
     {
         _gameOverController = GetComponent<GameOverController>();
@@ -22,7 +26,7 @@ public class PauseController : MonoBehaviour
     {
         _pauseButton = pauseButton;
 
-        if (_pauseButton)
+        if (_pauseButton && _canTogglePause)
         {
             TogglePause();
         }
@@ -37,6 +41,8 @@ public class PauseController : MonoBehaviour
         {
             PauseGame();
         }
+
+        StartCoroutine(PauseCooldown());
     }
     private void PauseGame()
     {
@@ -52,6 +58,12 @@ public class PauseController : MonoBehaviour
         Time.timeScale = 1;
         pauseMenu.gameObject.SetActive(false);
         _isPaused = false;
+    }
+    private IEnumerator PauseCooldown()
+    {
+        _canTogglePause = false;
+        yield return new WaitForSecondsRealtime(pauseDelay);
+        _canTogglePause = true;
     }
     #endregion
     /// <summary>
