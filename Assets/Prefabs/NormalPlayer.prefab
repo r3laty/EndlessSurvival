@@ -229,14 +229,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6837396134739910970}
-  - component: {fileID: 1238939660230382268}
   - component: {fileID: 3759936931065845557}
   - component: {fileID: 496641364651595782}
   - component: {fileID: 456816044163259076}
   - component: {fileID: 4877243573268062351}
   - component: {fileID: 3368286886682724125}
   - component: {fileID: 349168812123461064}
-  - component: {fileID: 3538711296136540328}
+  - component: {fileID: 1358485207420164738}
   m_Layer: 0
   m_Name: NormalPlayer
   m_TagString: Player
@@ -261,33 +260,6 @@ Transform:
   - {fileID: 4217328221503695303}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1238939660230382268
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8689544375937379706}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!114 &3759936931065845557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,7 +387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   rotationSpeed: 0.15
-  dashSpeed: 25
+  dashSpeed: 0.4
   dashTime: 0.2
   dashCooldown: 1
 --- !u!114 &4877243573268062351
@@ -509,8 +481,8 @@ MonoBehaviour:
         m_CallState: 2
   IsDead: 0
   MaxHealth: 35
---- !u!136 &3538711296136540328
-CapsuleCollider:
+--- !u!143 &1358485207420164738
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -527,8 +499,11 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
+  serializedVersion: 3
   m_Height: 2.295145
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.93531346, z: 0}
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}

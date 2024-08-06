@@ -54,7 +54,17 @@ public class EnemyController : MonoBehaviour
     }
     private void OnDeath()
     {
-        var instatiatedBaff = Instantiate(baff, bulletSpawnPoint.position, Quaternion.identity);
+        int coinFlip = Random.Range(0, 2);
+
+        if (coinFlip == 1)
+        {
+            var instatiatedBaff = Instantiate(baff, bulletSpawnPoint.position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.Log("Unluck");
+        }
+
         gameObject.SetActive(false);
     }
     private void OnDisable()

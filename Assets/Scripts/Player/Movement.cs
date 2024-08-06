@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed = 0.15f;
     [Header("Dash")]
-    [SerializeField] private float dashSpeed = 20f;
+    [SerializeField] private float dashSpeed = 1f;
     [SerializeField] private float dashTime = 0.2f;
     [SerializeField] private float dashCooldown = 1f;
 
@@ -28,6 +28,11 @@ public class Movement : MonoBehaviour
     private float _dashCooldownTimer = 0f;
     private bool _dashButton;
     private float _initialSpeed;
+    private CharacterController _characterController;
+    private void Awake()
+    {
+        gameObject.TryGetComponent<CharacterController>(out _characterController);
+    }
     private void Start()
     {
         _initialSpeed = MoveSpeed;
@@ -55,11 +60,10 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            MoveCharacter();
-            StopAllCoroutines();
+            MoveAndRotateCharacter();
         }
     }
-    private void MoveCharacter()
+    private void MoveAndRotateCharacter()
     {
         Vector3 movement = new Vector3(_movingVector.x * MoveSpeed * Time.deltaTime, 0, _movingVector.y * MoveSpeed * Time.deltaTime);
 
@@ -68,17 +72,18 @@ public class Movement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), rotationSpeed);
         }
 
-        transform.Translate(movement, Space.World);
+        _characterController.Move(movement);
     }
     private IEnumerator Dash()
     {
         _isDashing = true;
-        Vector3 dashDirection = new Vector3(_movingVector.x, 0, _movingVector.y).normalized;
         float startTime = Time.time;
+
+        Vector3 dashDirection = transform.forward * dashSpeed;
 
         while (Time.time < startTime + dashTime)
         {
-            transform.Translate(dashDirection * dashSpeed * Time.deltaTime, Space.World);
+            _characterController.Move(dashDirection);
             yield return null;
         }
 
