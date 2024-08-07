@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -14,6 +15,8 @@ public class Movement : MonoBehaviour
             moveSpeed = value;
         }
     }
+    public float DashCD => dashCooldown;
+    public event Action Dashed;
 
     [Header("Walk")]
     [SerializeField] private float moveSpeed;
@@ -76,6 +79,8 @@ public class Movement : MonoBehaviour
     }
     private IEnumerator Dash()
     {
+        Dashed?.Invoke();
+
         _isDashing = true;
         float startTime = Time.time;
 
