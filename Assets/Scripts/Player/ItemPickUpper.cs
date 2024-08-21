@@ -29,11 +29,13 @@ public class ItemPickUpper : MonoBehaviour
 
                 var boostableCollider = other.gameObject.GetComponent<BoxCollider>();
                 var boostableMesh = other.gameObject.GetComponentInChildren<MeshRenderer>();
+                var boostableCanvas = other.gameObject.GetComponentInChildren<Canvas>();
 
                 if (boostable != null)
                 {
                     boostableCollider.enabled = false;
                     boostableMesh.enabled = false;
+                    boostableCanvas.enabled = false;
 
                     BoostCreated?.Invoke(boostable);
                     boostable.Execute();

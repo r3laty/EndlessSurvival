@@ -3,6 +3,7 @@ using UnityEngine;
 public class TankAttack : MonoBehaviour, IDamageable
 {
     [SerializeField] private float attackRange;
+    [SerializeField] private LayerMask layer;
     
     private int _damage;
 
@@ -18,9 +19,8 @@ public class TankAttack : MonoBehaviour, IDamageable
 
         Vector3 direction = transform.forward;
 
-        if (Physics.Raycast(origin, direction, out RaycastHit hit, attackRange))
+        if (Physics.Raycast(origin, direction, out RaycastHit hit, attackRange, layer))
         {
-
             HealthController playerHealth = hit.collider.GetComponent<HealthController>();
             if (playerHealth != null)
             {

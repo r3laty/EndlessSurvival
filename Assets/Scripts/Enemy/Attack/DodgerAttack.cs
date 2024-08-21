@@ -4,6 +4,7 @@ public class DodgerAttack : MonoBehaviour, IDamageable
 {
 
     [SerializeField] private float attackRange;
+    [SerializeField] private LayerMask layer;
 
     private int _damage;
 

@@ -7,6 +7,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject volumeSettingsMenu;
     [SerializeField] private GameObject characterSelectionsMenu;
     [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject achievementsMenu;
     /// <summary>
     /// Method on button
     /// </summary>
@@ -36,6 +37,22 @@ public class MainMenuController : MonoBehaviour
     public void OnLeaveVolumeSettingsButton()
     {
         volumeSettingsMenu.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+    /// <summary>
+    /// Method on button
+    /// </summary>
+    public void OnAchievementsButton()
+    {
+        mainMenu.SetActive(false);
+        achievementsMenu.SetActive(true);
+    }
+    /// <summary>
+    /// Method on button
+    /// </summary>
+    public void OnLeaveAchievementsButton()
+    {
+        achievementsMenu.SetActive(false);
         mainMenu.SetActive(true);
     }
     /// <summary>

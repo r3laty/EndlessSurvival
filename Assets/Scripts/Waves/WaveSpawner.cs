@@ -8,7 +8,7 @@ public class WaveSpawner : MonoBehaviour
     public int WavesCount => _wavesCount;
     public event Action<int> WaveSpawned;
 
-    [HideInInspector] public List<GameObject> InstatiatedEnemies = new List<GameObject>();
+    [HideInInspector] public List<HealthController> InstantiatedEnemies = new List<HealthController>();
 
     [SerializeField] private WaveData waveData = new WaveData();
     private int _wavesCount = 0;
@@ -23,15 +23,26 @@ public class WaveSpawner : MonoBehaviour
         {
             foreach (var enemy in waveData.Enemies)
             {
-                var instatiatedEnemy = Instantiate(enemy.EnemyPrefab, enemy.Spawnpoint.position, Quaternion.identity);
+                var instantiatedEnemy = Instantiate(enemy.EnemyPrefab, enemy.Spawnpoint.position, Quaternion.identity);
 
-                instatiatedEnemy.GetComponent<HealthController>().MaxHealth = enemy.Health;
-                instatiatedEnemy.GetComponentInChildren<IDamageable>().Damage = enemy.Damage;
+                var enemyHealth = instantiatedEnemy.GetComponent<HealthController>();
+                enemyHealth.MaxHealth = enemy.Health;
 
-                InstatiatedEnemies.Add(instatiatedEnemy);
+                var enemyIDamageable = instantiatedEnemy.GetComponentInChildren<IDamageable>();
+                enemyIDamageable.Damage = enemy.Damage;
+
+                InstantiatedEnemies.Add(enemyHealth);
             }
+
             _wavesCount++;
             WaveSpawned?.Invoke(_wavesCount);
+
+            while (InstantiatedEnemies.Count > 0)
+            {
+                InstantiatedEnemies.RemoveAll(enemy => enemy.IsDead);
+                yield return null;
+            }
+
             yield return new WaitForSeconds(waveData.SpawningFrequency);
 
             foreach (var enemy in waveData.Enemies)

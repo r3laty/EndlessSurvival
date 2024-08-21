@@ -4,8 +4,7 @@ using UnityEngine.Events;
 
 public class HealthController : MonoBehaviour
 {
-    public int MaxHealthProperty => MaxHealth;
-
+    public int CurrentHealth => _currentHealth;
     public UnityEvent<int> Visualized;
     public event Action Dead;
 
@@ -13,15 +12,15 @@ public class HealthController : MonoBehaviour
 
     public int MaxHealth;
 
-    private int _health;
+    private int _currentHealth;
 
     private void Awake()
     {
-        _health = MaxHealth;
+        _currentHealth = MaxHealth;
     }
     private void CheckIsAlive()
     {
-        if (_health <= 0)
+        if (_currentHealth <= 0)
         {
             IsDead = true;
             Dead?.Invoke();
@@ -29,22 +28,22 @@ public class HealthController : MonoBehaviour
     }
     public void DealDamage(int damage)
     {
-        _health -= damage;
-        Visualized?.Invoke(_health);
+        _currentHealth -= damage;
+        Visualized?.Invoke(_currentHealth);
         CheckIsAlive();
     }
     public void RestoreHealth(int amount)
     {
-        _health += amount;
+        _currentHealth += amount;
 
-        if(_health > amount)
+        if(_currentHealth > amount)
         {
-            _health = MaxHealth;
+            _currentHealth = MaxHealth;
         }
-        Visualized?.Invoke(_health);
+        Visualized?.Invoke(_currentHealth);
     }
     public void ResetHealth()
     {
-        _health = MaxHealth;
+        _currentHealth = MaxHealth;
     }
 }

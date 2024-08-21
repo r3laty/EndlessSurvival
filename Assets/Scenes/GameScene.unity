@@ -3855,6 +3855,11 @@ PrefabInstance:
       propertyPath: deathMenu
       value: 
       objectReference: {fileID: 1211761372}
+    - target: {fileID: 3102674832526477142, guid: e5d4348b5f1a98f49876f38e653e2f6f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3759936931065845557, guid: e5d4348b5f1a98f49876f38e653e2f6f,
         type: 3}
       propertyPath: m_ActionEvents.Array.size
@@ -3992,6 +3997,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4877243573268062351, guid: e5d4348b5f1a98f49876f38e653e2f6f,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877243573268062351, guid: e5d4348b5f1a98f49876f38e653e2f6f,
+        type: 3}
       propertyPath: BulletsCountChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1304842957}
@@ -4004,6 +4014,11 @@ PrefabInstance:
         type: 3}
       propertyPath: BulletsCountChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: BulletsCountVisualiser, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497219796332902784, guid: e5d4348b5f1a98f49876f38e653e2f6f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6837396134739910970, guid: e5d4348b5f1a98f49876f38e653e2f6f,
         type: 3}
@@ -4055,10 +4070,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8034559633714774792, guid: e5d4348b5f1a98f49876f38e653e2f6f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437297836938118580, guid: e5d4348b5f1a98f49876f38e653e2f6f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8689544375937379706, guid: e5d4348b5f1a98f49876f38e653e2f6f,
         type: 3}
       propertyPath: m_Name
       value: StrongPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689544375937379706, guid: e5d4348b5f1a98f49876f38e653e2f6f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8689544375937379706, guid: e5d4348b5f1a98f49876f38e653e2f6f,
         type: 3}
@@ -4070,7 +4100,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3102674832526477142, guid: e5d4348b5f1a98f49876f38e653e2f6f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6040,7 +6071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1691474450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6053,9 +6084,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf7ca4cb1179f149b665c49cf7dc505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InstatiatedEnemies: []
+  InstantiatedEnemies: []
   waveData:
-    SpawningFrequency: 12
+    SpawningFrequency: 3
     Enemies:
     - EnemyPrefab: {fileID: 4399365483935337779, guid: 66c64e7a3e81f9342be5bda2c55976e7,
         type: 3}
@@ -6696,6 +6727,16 @@ PrefabInstance:
       propertyPath: deathMenu
       value: 
       objectReference: {fileID: 1211761372}
+    - target: {fileID: 1082372830079983661, guid: d7ad126efa3c640448c51bc1d59d4eb6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3455756720977870647, guid: d7ad126efa3c640448c51bc1d59d4eb6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3759936931065845557, guid: d7ad126efa3c640448c51bc1d59d4eb6,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.size
@@ -6786,6 +6827,16 @@ PrefabInstance:
       propertyPath: BulletsCountChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: BulletsCountVisualiser, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5942670741998569454, guid: d7ad126efa3c640448c51bc1d59d4eb6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497219796332902784, guid: d7ad126efa3c640448c51bc1d59d4eb6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6837396134739910970, guid: d7ad126efa3c640448c51bc1d59d4eb6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6836,10 +6887,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8034559633714774792, guid: d7ad126efa3c640448c51bc1d59d4eb6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437297836938118580, guid: d7ad126efa3c640448c51bc1d59d4eb6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8689544375937379706, guid: d7ad126efa3c640448c51bc1d59d4eb6,
         type: 3}
       propertyPath: m_Name
       value: NormalPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689544375937379706, guid: d7ad126efa3c640448c51bc1d59d4eb6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8689544375937379706, guid: d7ad126efa3c640448c51bc1d59d4eb6,
         type: 3}
@@ -7665,6 +7731,11 @@ PrefabInstance:
       propertyPath: deathMenu
       value: 
       objectReference: {fileID: 1211761372}
+    - target: {fileID: 2753137534673683925, guid: 11577905f775d4a4eaf07d6d463baf48,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3759936931065845557, guid: 11577905f775d4a4eaf07d6d463baf48,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7699,6 +7770,16 @@ PrefabInstance:
         type: 3}
       propertyPath: BulletsCountChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: BulletsCountVisualiser, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497219796332902784, guid: 11577905f775d4a4eaf07d6d463baf48,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6609269810472058124, guid: 11577905f775d4a4eaf07d6d463baf48,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6837396134739910970, guid: 11577905f775d4a4eaf07d6d463baf48,
         type: 3}
@@ -7750,10 +7831,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8034559633714774792, guid: 11577905f775d4a4eaf07d6d463baf48,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437297836938118580, guid: 11577905f775d4a4eaf07d6d463baf48,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8689544375937379706, guid: 11577905f775d4a4eaf07d6d463baf48,
         type: 3}
       propertyPath: m_Name
       value: FastPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689544375937379706, guid: 11577905f775d4a4eaf07d6d463baf48,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8689544375937379706, guid: 11577905f775d4a4eaf07d6d463baf48,
         type: 3}
@@ -7764,6 +7860,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824909819319234624, guid: 11577905f775d4a4eaf07d6d463baf48,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

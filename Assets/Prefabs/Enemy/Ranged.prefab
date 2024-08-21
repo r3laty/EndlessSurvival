@@ -116,7 +116,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsDead: 0
-  MaxHealth: 0
+  MaxHealth: 25
 --- !u!114 &1412826151605236206
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1720459660236912544}
   m_Layer: 6
-  m_Name: BioosterSpawnPoint
+  m_Name: BoosterSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsDead: 0
-  MaxHealth: 0
+  MaxHealth: 75
 --- !u!114 &5247593623909429942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1ad5c7aa03d1e44a4581805b78aa36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
   bulletSpawnPoint: {fileID: 1720459660236912544}
   moveSpeed: 2
   distanceToPlayer: 2
@@ -592,6 +593,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 3
+  layer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!4 &7629169905928410977 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1205765945396544356, guid: 0bf336439e331a84b9d472dc1847d9d3,
