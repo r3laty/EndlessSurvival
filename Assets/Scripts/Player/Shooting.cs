@@ -55,8 +55,11 @@ public class Shooting : BaseGun
 
                 GameObject bullet = Instantiate(bulletPrefab.gameObject, shotPoint.position, Quaternion.identity);
 
-                bullet.GetComponent<BulletController>().BulletDamage = bulletDamage;
-                bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed * Time.deltaTime);
+                BulletController instatiatedBullet = bullet.GetComponent<BulletController>();
+                instatiatedBullet.BulletDamage = bulletDamage;
+
+                Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+                bulletRb.AddForce(transform.forward * bulletSpeed * Time.deltaTime);
 
                 _currentBulletCount--;
 

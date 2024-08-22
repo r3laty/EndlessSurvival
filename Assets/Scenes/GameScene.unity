@@ -887,7 +887,7 @@ GameObject:
   - component: {fileID: 215409486}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3998,7 +3998,7 @@ PrefabInstance:
     - target: {fileID: 4877243573268062351, guid: e5d4348b5f1a98f49876f38e653e2f6f,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4877243573268062351, guid: e5d4348b5f1a98f49876f38e653e2f6f,
         type: 3}
@@ -4119,7 +4119,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1051626461}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051626462}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d75e888564f7ff542911cec3e14bbf01, type: 3}
   m_Name: 

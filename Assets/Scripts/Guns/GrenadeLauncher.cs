@@ -5,8 +5,9 @@ using UnityEngine;
 public class GrenadeLauncher : BaseGun
 {
     [SerializeField] private GameObject grenadePrefab;
-    [SerializeField] private float fireRate = 1f;  // Скорость стрельбы
-    [SerializeField] private float launchForce = 700f;  // Сила выстрела
+    [SerializeField] private Transform shotPoint;
+    [SerializeField] private float fireRate = 1f;
+    [SerializeField] private float launchForce = 700f;
     public void SetShootButton(bool shotButton)
     {
         _shootButton = shotButton;
@@ -37,9 +38,9 @@ public class GrenadeLauncher : BaseGun
             {
                 PlayShootSound();
 
-                GameObject grenade = Instantiate(grenadePrefab, transform.position, transform.rotation);
-                Rigidbody rb = grenade.GetComponent<Rigidbody>();
-                rb.AddForce(transform.forward * launchForce);
+                GameObject grenade = Instantiate(grenadePrefab, shotPoint.position, transform.rotation);
+                Rigidbody grenadeRb = grenade.GetComponent<Rigidbody>();
+                grenadeRb.AddForce(transform.forward * launchForce * Time.deltaTime);
                 _currentBulletCount--;
 
                 StartCoroutine(DelayBetweenShots());
