@@ -1,11 +1,10 @@
-using FMODUnity;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Shooting : MonoBehaviour
+public class Shooting : BaseGun
 {
-    public int InitialBulletCount => _initialBulletCount;
+    public int InitialBulletCount => _currentBulletCount;
 
     [SerializeField] private UnityEvent<int> BulletsCountChanged = new UnityEvent<int>();
     [Space]
@@ -13,26 +12,14 @@ public class Shooting : MonoBehaviour
     [Space]
     [SerializeField] private Transform shotPoint;
     [Space]
-    [SerializeField] private float delayBetweenShots;
-    [SerializeField] private float rechargingTime;
     [SerializeField] private float bulletSpeed;
-    [SerializeField] private int bulletsCount;
     [SerializeField] private int bulletDamage;
-    [Space]
-    [SerializeField] private EventReference shotSound;
-
-    private bool _shootButton;
-    private bool _rechargingButton;
-
-    private bool _shootDelay;
-    private bool _recharging;
 
     private int _initialDamage;
-    private int _initialBulletCount;
     private void Start()
     {
         _initialDamage = bulletDamage;
-        _initialBulletCount = bulletsCount;
+        _currentBulletCount = bulletsCount;
     }
     public void SetShootButton(bool shotButton)
     {
@@ -42,10 +29,10 @@ public class Shooting : MonoBehaviour
     {
         _rechargingButton = rechargingButton;
     }
+
     private void Update()
     {
-        BulletsCountChanged?.Invoke(bulletsCount);
-
+        BulletsCountChanged?.Invoke(_currentBulletCount);
         if (_shootButton)
         {
             Shoot();
@@ -54,15 +41,15 @@ public class Shooting : MonoBehaviour
 
         if (_rechargingButton)
         {
-            bulletsCount = 0;
             StartCoroutine(Recharging());
+            _rechargingButton = false;
         }
     }
-    private void Shoot()
+    protected override void Shoot()
     {
         if (!_recharging || _rechargingButton)
         {
-            if (!_shootDelay && bulletsCount > 0)
+            if (!_shootDelay && _currentBulletCount > 0)
             {
                 PlayShootSound();
 
@@ -71,40 +58,15 @@ public class Shooting : MonoBehaviour
                 bullet.GetComponent<BulletController>().BulletDamage = bulletDamage;
                 bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed * Time.deltaTime);
 
-                bulletsCount--;
+                _currentBulletCount--;
 
                 StartCoroutine(DelayBetweenShots());
             }
-            else if (bulletsCount <= 0)
+            else if (_currentBulletCount <= 0)
             {
                 StartCoroutine(Recharging());
             }
         }
-    }
-
-    private void PlayShootSound()
-    {
-        if (AudioManager.Instance != null)
-        {
-            AudioManager.Instance.PlayOneShot(shotSound, this.transform.position);
-        }
-    }
-
-    private IEnumerator DelayBetweenShots()
-    {
-        _shootDelay = true;
-        yield return new WaitForSeconds(delayBetweenShots);
-
-        _shootDelay = false;
-    }
-    private IEnumerator Recharging()
-    {
-        bulletsCount = 0;
-        _recharging = true;
-        yield return new WaitForSeconds(rechargingTime);
-
-        bulletsCount = _initialBulletCount;
-        _recharging = false;
     }
 
     public IEnumerator IncreaseDamage(float timeOfBoost, int damageToBoost)
@@ -117,6 +79,6 @@ public class Shooting : MonoBehaviour
     }
     public void ResetBulletCound()
     {
-        bulletsCount = _initialBulletCount;
+        _currentBulletCount = bulletsCount;
     }
 }

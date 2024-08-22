@@ -4136,6 +4136,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a06084509e0134f8f81d6e22313b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1051626465 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4300707667377297194, guid: e5d4348b5f1a98f49876f38e653e2f6f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1051626461}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051626462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd4dfe202603fe044a6c3bf7de34e16e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1091178067
 GameObject:
   m_ObjectHideFlags: 0
@@ -7337,6 +7349,7 @@ MonoBehaviour:
   playerShooting: {fileID: 450805081}
   player2Movement: {fileID: 1051626464}
   player2Shooting: {fileID: 1051626463}
+  player2Launcher: {fileID: 1051626465}
   player3Movement: {fileID: 1749764260}
   player3Shooting: {fileID: 1749764259}
   pause: {fileID: 1304842959}

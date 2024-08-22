@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 3759936931065845557}
   - component: {fileID: 496641364651595782}
   - component: {fileID: 456816044163259076}
+  - component: {fileID: 4300707667377297194}
   - component: {fileID: 4877243573268062351}
   - component: {fileID: 3368286886682724125}
   - component: {fileID: 349168812123461064}
@@ -418,7 +419,7 @@ MonoBehaviour:
   dashSpeed: 0.2
   dashTime: 0.2
   dashCooldown: 1
---- !u!114 &4877243573268062351
+--- !u!114 &4300707667377297194
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -427,9 +428,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 8689544375937379706}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd4dfe202603fe044a6c3bf7de34e16e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAmmo: 0
+  delayBetweenShots: 0
+  rechargingTime: 0
+  shotSound:
+    Guid:
+      Data1: -370518853
+      Data2: 1160602780
+      Data3: -1117079875
+      Data4: 477460790
+    Path: event:/Shot
+  grenadePrefab: {fileID: 0}
+  fireRate: 1
+  launchForce: 700
+--- !u!114 &4877243573268062351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8689544375937379706}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d75e888564f7ff542911cec3e14bbf01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxAmmo: 0
+  delayBetweenShots: 1
+  rechargingTime: 3.5
+  shotSound:
+    Guid:
+      Data1: -370518853
+      Data2: 1160602780
+      Data3: -1117079875
+      Data4: 477460790
+    Path: event:/Shot
   BulletsCountChanged:
     m_PersistentCalls:
       m_Calls:
@@ -448,18 +484,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8927775548537413744, guid: e25cdec1e41e47a4299495f556455375,
     type: 3}
   shotPoint: {fileID: 4217328221503695303}
-  delayBetweenShots: 1
-  rechargingTime: 3.5
   bulletSpeed: 100000
   bulletsCount: 16
   bulletDamage: 7
-  shotSound:
-    Guid:
-      Data1: -370518853
-      Data2: 1160602780
-      Data3: -1117079875
-      Data4: 477460790
-    Path: event:/Shot
 --- !u!114 &3368286886682724125
 MonoBehaviour:
   m_ObjectHideFlags: 0
