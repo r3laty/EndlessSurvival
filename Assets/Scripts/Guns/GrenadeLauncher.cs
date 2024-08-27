@@ -32,13 +32,21 @@ public class GrenadeLauncher : BaseGun
     }
     protected override void Shoot()
     {
+        Debug.Log($"{_shootDelay} shoot delay " +
+    $"\n{_currentBulletCount} bullet count" +
+    $"\nshoot");
+
         if (!_recharging || _rechargingButton)
         {
             if (!_shootDelay && _currentBulletCount > 0)
             {
+                Debug.Log($"{_shootDelay} shoot delay " +
+                    $"\n{_currentBulletCount} bullet count" +
+                    $"\nshoot");
+
                 PlayShootSound();
 
-                GameObject grenade = Instantiate(grenadePrefab, shotPoint.position, transform.rotation);
+                GameObject grenade = Instantiate(grenadePrefab, shotPoint.position, Quaternion.identity);
                 Rigidbody grenadeRb = grenade.GetComponent<Rigidbody>();
                 grenadeRb.AddForce(transform.forward * launchForce * Time.deltaTime);
                 _currentBulletCount--;

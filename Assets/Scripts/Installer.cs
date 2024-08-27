@@ -19,7 +19,10 @@ public class Installer : MonoInstaller
 
         Container.Bind<HealthController>().FromInstance(currentCharacter.GetComponent<HealthController>()).AsSingle();
         Container.Bind<Movement>().FromInstance(currentCharacter.GetComponent<Movement>()).AsSingle();
+
         Container.Bind<Shooting>().FromInstance(currentCharacter.GetComponent<Shooting>()).AsSingle();
+        
+
         Container.Bind<Transform>().FromInstance(currentCharacter.GetComponent<Transform>()).AsSingle();
         Container.Bind<ItemPickUpper>().FromInstance(currentCharacter.GetComponent<ItemPickUpper>()).AsSingle();
         

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Grenade : MonoBehaviour
@@ -8,6 +7,7 @@ public class Grenade : MonoBehaviour
     [SerializeField] private float maxDamage = 100f;
     [SerializeField] private float explosionForce = 700f;
     [SerializeField] private float timeToExplode;
+    [SerializeField] private ParticleSystem explotionFx;
     [SerializeField] private LayerMask layerMask;
     private void OnCollisionEnter(Collision collision)
     {
@@ -17,7 +17,7 @@ public class Grenade : MonoBehaviour
         }
     }
 
-    void Explode()
+    private void Explode()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius, layerMask);
 
@@ -32,12 +32,19 @@ public class Grenade : MonoBehaviour
             }
         }
 
-        Destroy(gameObject);
+        StartCoroutine(DestroyAfterTime());
     }
 
-    float CalculateDamage(float distance)
+    private float CalculateDamage(float distance)
     {
         float damage = maxDamage * (1 - distance / explosionRadius);
         return Mathf.Max(0f, damage);
+    }
+
+    private IEnumerator DestroyAfterTime()
+    {
+        ParticleSystem instantiatedFx = Instantiate(explotionFx, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(instantiatedFx.main.duration);
+        Destroy(gameObject);
     }
 }

@@ -8,7 +8,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private Shooting playerShooting;
     [Header("Strong")]
     [SerializeField] private Movement player2Movement;
-    [SerializeField] private Shooting player2Shooting;
+    //[SerializeField] private Shooting player2Shooting;
     [SerializeField] private GrenadeLauncher player2Launcher;
     [Header("Normal")]
     [SerializeField] private Movement player3Movement;
@@ -43,10 +43,10 @@ public class InputManager : MonoBehaviour
             playerShooting.SetShootButton(_shootButton);
             playerShooting.SetRechargingButton(_rechargingButton);
         }
-        if (player2Shooting != null)
+        if (player2Launcher != null)
         {
-            player2Shooting.SetShootButton(_shootButton);
-            player2Shooting.SetRechargingButton(_rechargingButton);
+            //player2Shooting.SetShootButton(_shootButton);
+            //player2Shooting.SetRechargingButton(_rechargingButton);
 
             player2Launcher.SetShootButton(_shootButton);
             player2Launcher.SetRechargingButton(_rechargingButton);

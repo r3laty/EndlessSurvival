@@ -10,6 +10,10 @@ public class BulletsCountVisualiser : MonoBehaviour
 
     private void Start()
     {
+        if (_playerShooting == null)
+        {
+            return;
+        }
         UpdateText(_playerShooting.InitialBulletCount);
     }
     public void OnBulletCountUpdate(int count)
