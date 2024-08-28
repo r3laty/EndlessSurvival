@@ -485,7 +485,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.6238785}
-  m_AnchoredPosition: {x: 0, y: -289}
+  m_AnchoredPosition: {x: 0, y: -71.99997}
   m_SizeDelta: {x: 380, y: -33.819}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &185986029
@@ -2830,7 +2830,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.6238785}
-  m_AnchoredPosition: {x: 0, y: 94}
+  m_AnchoredPosition: {x: 0, y: 49}
   m_SizeDelta: {x: 380, y: -33.819}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &781128240
@@ -3699,8 +3699,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 950003377}
-  - component: {fileID: 950003376}
   - component: {fileID: 950003378}
+  - component: {fileID: 950003379}
   m_Layer: 0
   m_Name: Volume
   m_TagString: Untagged
@@ -3708,20 +3708,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &950003376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950003375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16ee7b56f171694682bc23acb4c8f33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shotSoundSlider: {fileID: 675047583}
-  boostSoundSlider: {fileID: 2035038924}
 --- !u!4 &950003377
 Transform:
   m_ObjectHideFlags: 0
@@ -3752,6 +3738,19 @@ MonoBehaviour:
   MasterVolume: 1
   ShotVolume: 1
   BoosterVolume: 1
+--- !u!114 &950003379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950003375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87168c2e4fa9b14598a9aead04d7895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: settings.json
 --- !u!1 &1065374710
 GameObject:
   m_ObjectHideFlags: 0
@@ -4918,7 +4917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1273714290
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5119,6 +5118,7 @@ GameObject:
   - component: {fileID: 1304842954}
   - component: {fileID: 1304842961}
   - component: {fileID: 1304842962}
+  - component: {fileID: 1304842963}
   m_Layer: 0
   m_Name: UiManager
   m_TagString: Untagged
@@ -5169,6 +5169,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f46c44b9d12443945bb1f8dca5f9db48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1304842963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304842953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16ee7b56f171694682bc23acb4c8f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotSoundSlider: {fileID: 675047583}
+  boostSoundSlider: {fileID: 2035038924}
 --- !u!1 &1347131614
 GameObject:
   m_ObjectHideFlags: 0
