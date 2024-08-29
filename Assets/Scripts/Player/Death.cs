@@ -6,7 +6,7 @@ public class Death : MonoBehaviour
     [SerializeField] private Canvas deathMenu;
     [SerializeField] private GameObject body;
 
-    [Inject] private Shooting _shooting;
+    [Inject] private BaseGun _shooting;
 
     private HealthController _healthController;
 

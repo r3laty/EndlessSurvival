@@ -10,9 +10,10 @@ public class PauseController : MonoBehaviour
     [Space]
     [SerializeField] private float pauseDelay = 0.5f;
 
-    [Inject] private Shooting _shooting;
+    [Inject] private BaseGun _shooting;
 
     private GameOverController _gameOverController;
+    private MonoBehaviour _shootingScript;
 
     private bool _pauseButton;
     private bool _isPaused;

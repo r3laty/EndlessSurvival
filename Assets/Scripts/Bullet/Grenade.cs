@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class Grenade : MonoBehaviour
 {
+    public float BulletDamage;
+
     [SerializeField] private float explosionRadius = 5f;
-    [SerializeField] private float maxDamage = 100f;
     [SerializeField] private float explosionForce = 700f;
     [SerializeField] private float timeToExplode;
     [SerializeField] private ParticleSystem explotionFx;
@@ -37,7 +38,7 @@ public class Grenade : MonoBehaviour
 
     private float CalculateDamage(float distance)
     {
-        float damage = maxDamage * (1 - distance / explosionRadius);
+        float damage = BulletDamage * (1 - distance / explosionRadius);
         return Mathf.Max(0f, damage);
     }
 

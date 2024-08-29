@@ -14,18 +14,19 @@ public class Installer : MonoInstaller
     public override void InstallBindings()
     {
         _selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
+        Debug.Log($"Selected character: {_selectedCharacterIndex}");
+
 
         var currentCharacter = characters[_selectedCharacterIndex];
 
         Container.Bind<HealthController>().FromInstance(currentCharacter.GetComponent<HealthController>()).AsSingle();
         Container.Bind<Movement>().FromInstance(currentCharacter.GetComponent<Movement>()).AsSingle();
 
-        Container.Bind<Shooting>().FromInstance(currentCharacter.GetComponent<Shooting>()).AsSingle();
-        
+        Container.Bind<BaseGun>().FromInstance(currentCharacter.GetComponent<BaseGun>()).AsSingle();
 
         Container.Bind<Transform>().FromInstance(currentCharacter.GetComponent<Transform>()).AsSingle();
         Container.Bind<ItemPickUpper>().FromInstance(currentCharacter.GetComponent<ItemPickUpper>()).AsSingle();
-        
+
         Container.Bind<WaveSpawner>().FromInstance(waveSpawner).AsSingle();
         Container.Bind<CharacterLoader>().FromInstance(characterLoader).AsSingle();
     }

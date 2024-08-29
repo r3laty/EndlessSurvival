@@ -5,11 +5,10 @@ public class DamageBooster : MonoBehaviour, IBoostable
     [SerializeField] private int recoveryAmount;
     [SerializeField] private float timeOfBoost = 4.5f;
 
-
-    private Shooting _shooting;
+    private BaseGun _shooting;
     private void Awake()
     {
-        _shooting = GameObject.FindWithTag(TagManager.PlayerTag).GetComponent<Shooting>();
+        _shooting = GameObject.FindWithTag(TagManager.PlayerTag).GetComponent<BaseGun>();
     }
     public void Execute()
     {

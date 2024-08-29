@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 10
-  maxDamage: 70
+  maxDamage: 0
   explosionForce: 150000
   timeToExplode: 2
   explotionFx: {fileID: 19800006, guid: e7a1d0bf030dda147bc543bbd59f8608, type: 3}

@@ -1,21 +1,9 @@
 using TMPro;
 using UnityEngine;
-using Zenject;
 
 public class BulletsCountVisualiser : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI bulletsCount;
-
-    [Inject] private Shooting _playerShooting;
-
-    private void Start()
-    {
-        if (_playerShooting == null)
-        {
-            return;
-        }
-        UpdateText(_playerShooting.InitialBulletCount);
-    }
     public void OnBulletCountUpdate(int count)
     {
         UpdateText(count);

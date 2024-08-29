@@ -418,7 +418,7 @@ MonoBehaviour:
   rotationSpeed: 0.15
   dashSpeed: 0.5
   dashTime: 0.2
-  dashCooldown: 1
+  dashCooldown: 0.4
 --- !u!114 &4877243573268062351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,14 +446,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  bulletPrefab: {fileID: 8927775548537413744, guid: e25cdec1e41e47a4299495f556455375,
-    type: 3}
-  shotPoint: {fileID: 4217328221503695303}
+  bulletsCount: 10
+  bulletDamage: 12
   delayBetweenShots: 1
   rechargingTime: 0.7
-  bulletSpeed: 150000
-  bulletsCount: 10
-  bulletDamage: 6
   shotSound:
     Guid:
       Data1: -370518853
@@ -461,6 +457,10 @@ MonoBehaviour:
       Data3: -1117079875
       Data4: 477460790
     Path: event:/Shot
+  bulletPrefab: {fileID: 8927775548537413744, guid: e25cdec1e41e47a4299495f556455375,
+    type: 3}
+  shotPoint: {fileID: 4217328221503695303}
+  bulletSpeed: 150000
 --- !u!114 &3368286886682724125
 MonoBehaviour:
   m_ObjectHideFlags: 0

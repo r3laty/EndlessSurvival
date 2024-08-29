@@ -4,21 +4,13 @@ using UnityEngine.Events;
 
 public class Shooting : BaseGun
 {
-    public int InitialBulletCount => _currentBulletCount;
-
-    [SerializeField] private UnityEvent<int> BulletsCountChanged = new UnityEvent<int>();
-    [Space]
     [SerializeField] private BulletController bulletPrefab;
     [Space]
     [SerializeField] private Transform shotPoint;
     [Space]
     [SerializeField] private float bulletSpeed;
-    [SerializeField] private int bulletDamage;
-
-    private int _initialDamage;
     private void Start()
     {
-        _initialDamage = bulletDamage;
         _currentBulletCount = bulletsCount;
     }
     public void SetShootButton(bool shotButton)
@@ -70,18 +62,5 @@ public class Shooting : BaseGun
                 StartCoroutine(Recharging());
             }
         }
-    }
-
-    public IEnumerator IncreaseDamage(float timeOfBoost, int damageToBoost)
-    {
-        bulletDamage += damageToBoost;
-
-        yield return new WaitForSeconds(timeOfBoost);
-
-        bulletDamage = _initialDamage;
-    }
-    public void ResetBulletCound()
-    {
-        _currentBulletCount = bulletsCount;
     }
 }

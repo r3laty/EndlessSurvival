@@ -12,7 +12,7 @@ public class Statistics : MonoBehaviour
 
     [Inject] private WaveSpawner _waveSpawner;
     [Inject] private ItemPickUpper _pickUpper;
-    [Inject] private Shooting _playerShooting;
+    [Inject] private BaseGun _playerShooting;
     [Inject] private HealthController _playerHealth;
     private void OnEnable()
     {

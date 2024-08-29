@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2053703837814211717}
   - component: {fileID: 7094557807221262731}
   - component: {fileID: 3188180601037371827}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4374591537297269774}
   - component: {fileID: 5886315551432218525}
   - component: {fileID: 505350536115302808}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4217328221503695303}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -229,7 +229,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6837396134739910970}
-  - component: {fileID: 1238939660230382268}
   - component: {fileID: 3759936931065845557}
   - component: {fileID: 496641364651595782}
   - component: {fileID: 456816044163259076}
@@ -237,9 +236,9 @@ GameObject:
   - component: {fileID: 3368286886682724125}
   - component: {fileID: 349168812123461064}
   - component: {fileID: 2353304125474458107}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StrongPlayer
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -261,33 +260,6 @@ Transform:
   - {fileID: 4217328221503695303}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1238939660230382268
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8689544375937379706}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!114 &3759936931065845557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,7 +351,19 @@ MonoBehaviour:
     m_ActionId: b1e8e9a2-ba7b-48ef-9c8d-521e180f007b
     m_ActionName: Gameplay/Recharging[/Keyboard/r]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnPausing
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a0b4a2e6-2b1d-423b-ae4d-0df04dcd5c6a
     m_ActionName: UI/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
@@ -417,7 +401,7 @@ MonoBehaviour:
   rotationSpeed: 0.15
   dashSpeed: 0.2
   dashTime: 0.2
-  dashCooldown: 1
+  dashCooldown: 2.5
 --- !u!114 &4300707667377297194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,7 +414,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4dfe202603fe044a6c3bf7de34e16e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BulletsCountChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BulletsCountVisualiser, Assembly-CSharp
+        m_MethodName: OnBulletCountUpdate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   bulletsCount: 7
+  bulletDamage: 50
   delayBetweenShots: 1.2
   rechargingTime: 5
   shotSound:
@@ -440,7 +440,7 @@ MonoBehaviour:
       Data3: -1117079875
       Data4: 477460790
     Path: event:/Shot
-  grenadePrefab: {fileID: 6773200931314257304, guid: c153b20e6a5afec42a259e5d1d9b3404,
+  grenadePrefab: {fileID: 1024103579395436066, guid: c153b20e6a5afec42a259e5d1d9b3404,
     type: 3}
   shotPoint: {fileID: 4217328221503695303}
   fireRate: 1
@@ -481,8 +481,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HealthCountVisualizer, Assembly-CSharp
-        m_MethodName: 
+        m_TargetAssemblyTypeName: HealthCountVisualiser, Assembly-CSharp
+        m_MethodName: OnHealthCountUpdate
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -84,7 +84,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsDead: 0
-  MaxHealth: 75
+  MaxHealth: 175
 --- !u!114 &5247593623909429942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,7 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81512894689bca418535565b23fb1df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 3
+  attackRange: 100
   layer:
     serializedVersion: 2
     m_Bits: 256

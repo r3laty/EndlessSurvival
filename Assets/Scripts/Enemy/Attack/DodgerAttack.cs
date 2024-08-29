@@ -19,7 +19,7 @@ public class DodgerAttack : MonoBehaviour, IDamageable
 
         Vector3 direction = transform.forward;
 
-        if (Physics.Raycast(origin, direction, out RaycastHit hit, attackRange))
+        if (Physics.Raycast(origin, direction, out RaycastHit hit, attackRange, layer))
         {
             HealthController playerHealth = hit.collider.GetComponent<HealthController>();
             if (playerHealth != null)
