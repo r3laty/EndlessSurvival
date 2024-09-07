@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 349168812123461064}
   - component: {fileID: 3368286886682724125}
   - component: {fileID: 6138308135570722659}
+  - component: {fileID: 7937733325071076740}
   m_Layer: 0
   m_Name: FastPlayer
   m_TagString: Player
@@ -416,9 +417,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   rotationSpeed: 0.15
-  dashSpeed: 0.5
-  dashTime: 0.2
-  dashCooldown: 0.4
+  dashSpeed: 0.3
+  dashTime: 0.1
+  dashCooldown: 0.8
 --- !u!114 &4877243573268062351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,7 +448,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   bulletsCount: 10
-  bulletDamage: 12
+  bulletDamage: 18
   delayBetweenShots: 1
   rechargingTime: 0.7
   shotSound:
@@ -523,7 +524,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -535,6 +536,29 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!136 &7937733325071076740
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8689544375937379706}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.295145
+  m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &3176030520908614091
 PrefabInstance:

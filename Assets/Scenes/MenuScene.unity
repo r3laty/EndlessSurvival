@@ -412,7 +412,7 @@ MonoBehaviour:
 
     bullets: 10
 
-    damage: 12
+    damage: 18
 
     health:
     55
@@ -6098,7 +6098,7 @@ MonoBehaviour:
 
     bullets: 10
 
-    damage: 8
+    damage: 30
 
     health:
     110
