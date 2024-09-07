@@ -14,7 +14,6 @@ public class Installer : MonoInstaller
     public override void InstallBindings()
     {
         _selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
-        Debug.Log($"Selected character: {_selectedCharacterIndex}");
 
 
         var currentCharacter = characters[_selectedCharacterIndex];

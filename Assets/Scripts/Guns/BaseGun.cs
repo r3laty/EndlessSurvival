@@ -44,7 +44,6 @@ public class BaseGun : MonoBehaviour
 
     protected IEnumerator DelayBetweenShots()
     {
-        Debug.Log("DelayBetweenShots coroutine works!");
         _shootDelay = true;
         yield return new WaitForSeconds(delayBetweenShots);
 
@@ -52,12 +51,9 @@ public class BaseGun : MonoBehaviour
     }
     protected IEnumerator Recharging()
     {
-        Debug.Log($"Recharging coroutine works!" +
-            $"\nrecharging time {rechargingTime}");
         _currentBulletCount = 0;
         _recharging = true;
         yield return new WaitForSeconds(rechargingTime);
-        Debug.Log($"Recharging coroutine was end!");
         _currentBulletCount = bulletsCount;
         _recharging = false;
     }

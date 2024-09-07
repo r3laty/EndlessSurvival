@@ -60,10 +60,7 @@ public class EnemyController : MonoBehaviour
         {
             var instatiatedBaff = Instantiate(baff, bulletSpawnPoint.position, Quaternion.identity);
         }
-        else
-        {
-            Debug.Log("Unluck");
-        }
+
 
         gameObject.SetActive(false);
     }

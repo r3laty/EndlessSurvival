@@ -16,9 +16,6 @@ public class VolumeController : MonoBehaviour
         {
             Saves.Instance.LoadFromFile(AudioManager.Instance.ShotVolume, AudioManager.Instance.BoosterVolume);
 
-            Debug.Log($"Shot sound volume {AudioManager.Instance.ShotVolume}");
-            Debug.Log($"Booster sound volume {AudioManager.Instance.BoosterVolume}");
-
             shotSoundSlider.value = AudioManager.Instance.ShotVolume;
             boostSoundSlider.value = AudioManager.Instance.BoosterVolume;
         }
