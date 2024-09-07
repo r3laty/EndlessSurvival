@@ -6119,19 +6119,19 @@ MonoBehaviour:
     - EnemyPrefab: {fileID: 4399365483935337779, guid: 66c64e7a3e81f9342be5bda2c55976e7,
         type: 3}
       Spawnpoint: {fileID: 2014310551}
-      Health: 25
+      Health: 120
       Damage: 2
       EnemyId: 1
     - EnemyPrefab: {fileID: 8763166285339174245, guid: 2111093ff042e5244a8e475c600f1f62,
         type: 3}
       Spawnpoint: {fileID: 536207971}
-      Health: 16
+      Health: 75
       Damage: 5
       EnemyId: 2
     - EnemyPrefab: {fileID: 5363491182181565568, guid: 73fe8ae3934fd6a4e838c895ce261de4,
         type: 3}
       Spawnpoint: {fileID: 2039526126}
-      Health: 12
+      Health: 100
       Damage: 7
       EnemyId: 3
 --- !u!4 &1691474451

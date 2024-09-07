@@ -448,8 +448,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   bulletsCount: 10
-  bulletDamage: 18
-  delayBetweenShots: 1
+  bulletDamage: 14
+  delayBetweenShots: 0.8
   rechargingTime: 0.7
   shotSound:
     Guid:
