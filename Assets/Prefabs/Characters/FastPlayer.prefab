@@ -234,8 +234,8 @@ GameObject:
   - component: {fileID: 496641364651595782}
   - component: {fileID: 456816044163259076}
   - component: {fileID: 4877243573268062351}
-  - component: {fileID: 3368286886682724125}
   - component: {fileID: 349168812123461064}
+  - component: {fileID: 3368286886682724125}
   - component: {fileID: 6138308135570722659}
   m_Layer: 0
   m_Name: FastPlayer
@@ -270,7 +270,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8689544375937379706}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -461,26 +461,6 @@ MonoBehaviour:
     type: 3}
   shotPoint: {fileID: 4217328221503695303}
   bulletSpeed: 150000
---- !u!114 &3368286886682724125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8689544375937379706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a51ab5d9eb9acc409b5899611791e19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectedSound:
-    Guid:
-      Data1: -1360921828
-      Data2: 1332229898
-      Data3: 2058413985
-      Data4: -1197579968
-    Path: event:/PickUpBooster
-  pickUpDelay: 4
 --- !u!114 &349168812123461064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,6 +490,26 @@ MonoBehaviour:
         m_CallState: 2
   IsDead: 0
   MaxHealth: 20
+--- !u!114 &3368286886682724125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8689544375937379706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a51ab5d9eb9acc409b5899611791e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectedSound:
+    Guid:
+      Data1: -1360921828
+      Data2: 1332229898
+      Data3: 2058413985
+      Data4: -1197579968
+    Path: event:/PickUpBooster
+  pickUpDelay: 4
 --- !u!143 &6138308135570722659
 CharacterController:
   m_ObjectHideFlags: 0
@@ -523,7 +523,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

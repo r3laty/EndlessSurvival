@@ -33,6 +33,8 @@ public class GrenadeLauncher : BaseGun
     }
     protected override void Shoot()
     {
+        base.Shoot();
+
         if (!_recharging || _rechargingButton)
         {
             if (!_shootDelay && _currentBulletCount > 0)

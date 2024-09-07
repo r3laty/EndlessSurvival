@@ -10,16 +10,16 @@ public class CameraFollow : MonoBehaviour
     [Inject] private CharacterLoader _characterLoader;
 
     private Vector3 _velocity = Vector3.zero;
-    private Transform target;
+    private Transform _target;
     private void Start()
     {
-        target = _characterLoader.CurrentTransform;
+        _target = _characterLoader.CurrentTransform;
     }
     private void Update()
     {
-        if (target != null)
+        if (_target != null)
         {
-            Vector3 targetPosition = target.position + offset;
+            Vector3 targetPosition = _target.position + offset;
 
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _velocity, smoothTime);
         }

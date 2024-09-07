@@ -1,10 +1,13 @@
 using FMODUnity;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class BaseGun : MonoBehaviour
 {
+    public static Action Shooted;
+
     [SerializeField] protected UnityEvent<int> BulletsCountChanged = new UnityEvent<int>();
     [Space]
     [SerializeField] protected int bulletsCount;
@@ -29,7 +32,7 @@ public class BaseGun : MonoBehaviour
 
     protected virtual void Shoot()
     {
-
+        Shooted?.Invoke();
     }
     protected virtual void PlayShootSound()
     {

@@ -5,6 +5,7 @@ public class DodgerAttack : MonoBehaviour, IDamageable
 
     [SerializeField] private float attackRange;
     [SerializeField] private LayerMask layer;
+    [SerializeField] private Transform attackPoint;
 
     private int _damage;
 
@@ -15,9 +16,9 @@ public class DodgerAttack : MonoBehaviour, IDamageable
     }
     public void Attack()
     {
-        Vector3 origin = transform.position;
+        Vector3 origin = attackPoint.position;
 
-        Vector3 direction = transform.forward;
+        Vector3 direction = attackPoint.forward;
 
         if (Physics.Raycast(origin, direction, out RaycastHit hit, attackRange, layer))
         {

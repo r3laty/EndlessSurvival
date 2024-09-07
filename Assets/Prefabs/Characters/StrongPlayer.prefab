@@ -229,12 +229,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6837396134739910970}
+  - component: {fileID: 2398795963727319634}
   - component: {fileID: 3759936931065845557}
   - component: {fileID: 496641364651595782}
   - component: {fileID: 456816044163259076}
   - component: {fileID: 4300707667377297194}
-  - component: {fileID: 3368286886682724125}
   - component: {fileID: 349168812123461064}
+  - component: {fileID: 3368286886682724125}
   - component: {fileID: 2353304125474458107}
   m_Layer: 8
   m_Name: StrongPlayer
@@ -260,6 +261,33 @@ Transform:
   - {fileID: 4217328221503695303}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &2398795963727319634
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8689544375937379706}
+  serializedVersion: 4
+  m_Mass: 1000
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!114 &3759936931065845557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,26 +473,6 @@ MonoBehaviour:
   shotPoint: {fileID: 4217328221503695303}
   fireRate: 1
   launchForce: 25000
---- !u!114 &3368286886682724125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8689544375937379706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a51ab5d9eb9acc409b5899611791e19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectedSound:
-    Guid:
-      Data1: -1360921828
-      Data2: 1332229898
-      Data3: 2058413985
-      Data4: -1197579968
-    Path: event:/PickUpBooster
-  pickUpDelay: 4
 --- !u!114 &349168812123461064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,6 +502,26 @@ MonoBehaviour:
         m_CallState: 2
   IsDead: 0
   MaxHealth: 65
+--- !u!114 &3368286886682724125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8689544375937379706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a51ab5d9eb9acc409b5899611791e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectedSound:
+    Guid:
+      Data1: -1360921828
+      Data2: 1332229898
+      Data3: 2058413985
+      Data4: -1197579968
+    Path: event:/PickUpBooster
+  pickUpDelay: 4
 --- !u!143 &2353304125474458107
 CharacterController:
   m_ObjectHideFlags: 0
@@ -507,7 +535,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
