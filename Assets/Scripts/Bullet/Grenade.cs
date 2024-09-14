@@ -10,6 +10,13 @@ public class Grenade : MonoBehaviour
     [SerializeField] private float timeToExplode;
     [SerializeField] private ParticleSystem explotionFx;
     [SerializeField] private LayerMask layerMask;
+    private MeshRenderer _mesh;
+    private CapsuleCollider _collider;
+    private void Awake()
+    {
+        _mesh = GetComponent<MeshRenderer>();
+        _collider = GetComponent<CapsuleCollider>();
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag(TagManager.FloorTag))
@@ -45,6 +52,10 @@ public class Grenade : MonoBehaviour
     private IEnumerator DestroyAfterTime()
     {
         ParticleSystem instantiatedFx = Instantiate(explotionFx, transform.position, Quaternion.identity);
+
+        _mesh.enabled = false;
+        _collider.enabled = false;
+
         yield return new WaitForSeconds(instantiatedFx.main.duration);
         Destroy(gameObject);
     }
