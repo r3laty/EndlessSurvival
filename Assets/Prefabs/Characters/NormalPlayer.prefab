@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2053703837814211717}
   - component: {fileID: 7094557807221262731}
   - component: {fileID: 3188180601037371827}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4374591537297269774}
   - component: {fileID: 5886315551432218525}
   - component: {fileID: 505350536115302808}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4217328221503695303}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -238,13 +238,13 @@ GameObject:
   - component: {fileID: 3368286886682724125}
   - component: {fileID: 1358485207420164738}
   - component: {fileID: 1715430127030401304}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NormalPlayer
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6837396134739910970
 Transform:
   m_ObjectHideFlags: 0
@@ -285,7 +285,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -381,7 +381,19 @@ MonoBehaviour:
     m_ActionId: b1e8e9a2-ba7b-48ef-9c8d-521e180f007b
     m_ActionName: Gameplay/Recharging[/Keyboard/r]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnPausing
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a0b4a2e6-2b1d-423b-ae4d-0df04dcd5c6a
     m_ActionName: UI/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
@@ -436,8 +448,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BulletsCountVisualizer, Assembly-CSharp
-        m_MethodName: 
+        m_TargetAssemblyTypeName: BulletsCountVisualiser, Assembly-CSharp
+        m_MethodName: OnBulletCountUpdate
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -478,8 +490,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HealthCountVisualizer, Assembly-CSharp
-        m_MethodName: 
+        m_TargetAssemblyTypeName: HealthCountVisualiser, Assembly-CSharp
+        m_MethodName: OnHealthCountUpdate
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -568,10 +580,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6837396134739910970}
     m_Modifications:
+    - target: {fileID: 3315495605850436081, guid: 073cd9d13e937dd4a9c96649207399fc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020972195595290920, guid: 073cd9d13e937dd4a9c96649207399fc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8322307382869251634, guid: 073cd9d13e937dd4a9c96649207399fc,
         type: 3}
       propertyPath: m_Name
       value: M4A4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322307382869251634, guid: 073cd9d13e937dd4a9c96649207399fc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8984628198386255602, guid: 073cd9d13e937dd4a9c96649207399fc,
         type: 3}

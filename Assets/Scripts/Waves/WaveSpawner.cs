@@ -49,29 +49,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 enemy.Health++;
                 enemy.Damage++;
-                enemy.Spawnpoint.position = new Vector3(UnityEngine.Random.Range(-22, 22), 3, UnityEngine.Random.Range(23.28f, -23.28f));
-            }
-        }
-    }
-
-    public void SetDefaultEnemySettings()
-    {
-        foreach (var enemy in waveData.Enemies)
-        {
-            switch (enemy.EnemyId)
-            {
-                case 1:
-                    enemy.Health = DefaultEnemySettings.TankHealth;
-                    enemy.Damage = DefaultEnemySettings.TankDamage;
-                    break;
-                case 2: 
-                    enemy.Health = DefaultEnemySettings.RangedHealth;
-                    enemy.Damage = DefaultEnemySettings.RangedDamage;
-                    break;
-                case 3:
-                    enemy.Health = DefaultEnemySettings.DodgerHealth;
-                    enemy.Damage = DefaultEnemySettings.DodgerDamage;
-                    break;
+                enemy.Spawnpoint.position = new Vector3(UnityEngine.Random.Range(-22, 22), 1, UnityEngine.Random.Range(23.28f, -23.28f));
             }
         }
     }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2053703837814211717}
   - component: {fileID: 7094557807221262731}
   - component: {fileID: 3188180601037371827}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4374591537297269774}
   - component: {fileID: 5886315551432218525}
   - component: {fileID: 505350536115302808}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4217328221503695303}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -238,13 +238,13 @@ GameObject:
   - component: {fileID: 3368286886682724125}
   - component: {fileID: 6138308135570722659}
   - component: {fileID: 7937733325071076740}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FastPlayer
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6837396134739910970
 Transform:
   m_ObjectHideFlags: 0
@@ -285,7 +285,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -436,8 +436,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BulletsCountVisualizer, Assembly-CSharp
-        m_MethodName: 
+        m_TargetAssemblyTypeName: BulletsCountVisualiser, Assembly-CSharp
+        m_MethodName: OnBulletCountUpdate
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -478,8 +478,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HealthCountVisualizer, Assembly-CSharp
-        m_MethodName: 
+        m_TargetAssemblyTypeName: HealthCountVisualiser, Assembly-CSharp
+        m_MethodName: OnHealthCountUpdate
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -568,10 +568,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6837396134739910970}
     m_Modifications:
+    - target: {fileID: 731442337402293278, guid: 1219ffa282f7208499d393482721e4ce,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6227324171541526923, guid: 1219ffa282f7208499d393482721e4ce,
         type: 3}
       propertyPath: m_Name
       value: P90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227324171541526923, guid: 1219ffa282f7208499d393482721e4ce,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7472953432235421592, guid: 1219ffa282f7208499d393482721e4ce,
         type: 3}
@@ -637,6 +647,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623075034239923399, guid: 1219ffa282f7208499d393482721e4ce,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

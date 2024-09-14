@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TankAttack : MonoBehaviour, IDamageable
@@ -6,6 +7,7 @@ public class TankAttack : MonoBehaviour, IDamageable
     [SerializeField] private LayerMask layer;
     [SerializeField] private Transform attackPoint;
 
+    private bool _isReadyToAttack = false;
     private int _damage;
 
     public int Damage { get; set; }
