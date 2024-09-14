@@ -18,7 +18,7 @@ public class SetVirtualCamera : MonoBehaviour
     {
         SetLookAt();
     }
-    private void Update()
+    private void LateUpdate()
     {
         SetFollow();
     }

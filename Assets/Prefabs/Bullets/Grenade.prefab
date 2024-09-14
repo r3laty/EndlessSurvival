@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4498720192196576217}
   - component: {fileID: 5997100633365583208}
   - component: {fileID: 1024103579395436066}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Grenade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85076f3508598214e92535f3480af7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BulletDamage: 0
   explosionRadius: 10
-  maxDamage: 0
   explosionForce: 150000
   timeToExplode: 2
   explotionFx: {fileID: 19800006, guid: e7a1d0bf030dda147bc543bbd59f8608, type: 3}

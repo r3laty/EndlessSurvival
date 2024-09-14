@@ -7,6 +7,7 @@ TagManager:
   - Booster
   - Enemy
   - Floor
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Enemy
   - Booster
   - Player
-  - 
+  - Bullet
   - 
   - 
   - 

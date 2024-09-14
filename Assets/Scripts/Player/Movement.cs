@@ -84,7 +84,7 @@ public class Movement : MonoBehaviour
         _isDashing = true;
         float startTime = Time.time;
 
-        Vector3 dashDirection = transform.forward * dashSpeed;
+        Vector3 dashDirection = transform.forward * dashSpeed * Time.deltaTime;
 
         while (Time.time < startTime + dashTime)
         {

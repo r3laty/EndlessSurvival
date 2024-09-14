@@ -417,7 +417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   rotationSpeed: 0.15
-  dashSpeed: 0.3
+  dashSpeed: 30
   dashTime: 0.1
   dashCooldown: 0.8
 --- !u!114 &4877243573268062351
