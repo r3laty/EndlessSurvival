@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
-public class BulletController : MonoBehaviour
+public class BulletController : MonoBehaviour, IShooteable
 {
     [HideInInspector] public int BulletDamage = 0;
     

@@ -4,11 +4,13 @@ using Zenject;
 
 public class Installer : MonoInstaller
 {
+    [Header("Characters")]
     [SerializeField] private List<GameObject> characters = new List<GameObject>();
-
-    [SerializeField] private WaveSpawner waveSpawner;
-
     [SerializeField] private CharacterLoader characterLoader;
+    [Header("Enemies"), Space]
+    [SerializeField] private WaveSpawner waveSpawner;
+    [Header("Pause"), Space]
+    [SerializeField] private PauseController pauseController;
 
     private int _selectedCharacterIndex;
     public override void InstallBindings()
@@ -27,6 +29,9 @@ public class Installer : MonoInstaller
         Container.Bind<ItemPickUpper>().FromInstance(currentCharacter.GetComponent<ItemPickUpper>()).AsSingle();
 
         Container.Bind<WaveSpawner>().FromInstance(waveSpawner).AsSingle();
+
         Container.Bind<CharacterLoader>().FromInstance(characterLoader).AsSingle();
+
+        Container.Bind<PauseData>().FromNew().AsCached();
     }
 }

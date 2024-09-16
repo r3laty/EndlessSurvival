@@ -1,29 +1,22 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseData
 {
-    public List<IPauseable> pauseables = new List<IPauseable>();
+    public List<IPauseable> Pauseables = new List<IPauseable>();
     public void Pause()
     {
-        Debug.Log(pauseables.Count + " list of IPauseable");
-        foreach (var pauseable in pauseables)
+        Debug.Log(Pauseables.Count + " count of list IPauseable");
+        foreach (var pauseable in Pauseables)
         {
-            if (pauseable != null)
-            {
-                pauseable.SetPause();
-            }
+            pauseable.GamePause();
         }
     }
     public void UnPause()
     {
-        foreach (var pauseable in pauseables)
+        foreach (var pauseable in Pauseables)
         {
-            if (pauseable != null)
-            {
-                pauseable.SetUnPause();
-            }
+            pauseable.GameReset();
         }
     }
 }

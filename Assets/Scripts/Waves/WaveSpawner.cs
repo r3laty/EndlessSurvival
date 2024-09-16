@@ -8,7 +8,7 @@ public class WaveSpawner : MonoBehaviour
     public int WavesCount => _wavesCount;
     public event Action<int> WaveSpawned;
 
-    [HideInInspector] public List<HealthController> InstantiatedEnemies = new List<HealthController>();
+    [HideInInspector] public List<HealthController> InstantiatedEnemieHps = new List<HealthController>();
 
     [SerializeField] private WaveData waveData = new WaveData();
     private int _wavesCount = 0;
@@ -31,15 +31,15 @@ public class WaveSpawner : MonoBehaviour
                 var enemyIDamageable = instantiatedEnemy.GetComponentInChildren<IDamageable>();
                 enemyIDamageable.Damage = enemy.Damage;
 
-                InstantiatedEnemies.Add(enemyHealth);
+                InstantiatedEnemieHps.Add(enemyHealth);
             }
 
             _wavesCount++;
             WaveSpawned?.Invoke(_wavesCount);
 
-            while (InstantiatedEnemies.Count > 0)
+            while (InstantiatedEnemieHps.Count > 0)
             {
-                InstantiatedEnemies.RemoveAll(enemy => enemy.IsDead);
+                InstantiatedEnemieHps.RemoveAll(enemy => enemy.IsDead);
                 yield return null;
             }
 

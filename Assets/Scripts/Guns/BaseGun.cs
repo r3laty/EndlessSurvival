@@ -1,11 +1,13 @@
 using FMODUnity;
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class BaseGun : MonoBehaviour
 {
+    public Rigidbody CurrentBulletRb { get; set; }
     public float RechargingTime => rechargingTime;
     public event Action Recharge;
 

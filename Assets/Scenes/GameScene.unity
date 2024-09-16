@@ -4962,6 +4962,8 @@ GameObject:
   - component: {fileID: 1304842965}
   - component: {fileID: 1304842955}
   - component: {fileID: 1304842959}
+  - component: {fileID: 1304842967}
+  - component: {fileID: 1304842968}
   - component: {fileID: 1304842960}
   - component: {fileID: 1304842962}
   - component: {fileID: 1304842963}
@@ -5190,6 +5192,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootImage: {fileID: 1587027985}
   coolDownCountText: {fileID: 833360793}
+--- !u!114 &1304842967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304842953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f22cfe29cf0b7d34991e532fead88c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1304842968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304842953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eafaacca66696f24295fbeef83cbdf54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1306211995
 GameObject:
   m_ObjectHideFlags: 3
@@ -6705,8 +6731,9 @@ MonoBehaviour:
   - {fileID: 1697793788}
   - {fileID: 1051626462}
   - {fileID: 1749764258}
-  waveSpawner: {fileID: 1691474450}
   characterLoader: {fileID: 1307796805}
+  waveSpawner: {fileID: 1691474450}
+  pauseController: {fileID: 0}
 --- !u!4 &1728599448
 Transform:
   m_ObjectHideFlags: 0

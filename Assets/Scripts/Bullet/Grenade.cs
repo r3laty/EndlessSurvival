@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Grenade : MonoBehaviour
+public class Grenade : MonoBehaviour, IShooteable
 {
     public float BulletDamage;
 

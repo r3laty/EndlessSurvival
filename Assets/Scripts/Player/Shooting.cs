@@ -1,11 +1,8 @@
-using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Shooting : BaseGun
 {
-    public Rigidbody CurrentBulletRb {get; set;}
+    
     [SerializeField] private BulletController bulletPrefab;
     [Space]
     [SerializeField] private Transform shotPoint;
