@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Zenject;
 
-public class PauseController : MonoBehaviour
+public class PauseController : MonoBehaviour, IPauseable
 {
     [SerializeField] private Canvas pauseMenu;
     [Space]
@@ -13,14 +13,19 @@ public class PauseController : MonoBehaviour
     [Inject] private BaseGun _shooting;
 
     private GameOverController _gameOverController;
-    private MonoBehaviour _shootingScript;
 
     private bool _pauseButton;
     private bool _isPaused;
     private bool _canTogglePause = true;
+    private PauseData _pauseData;
     private void Awake()
     {
         _gameOverController = GetComponent<GameOverController>();
+        _pauseData = new PauseData();
+    }
+    private void Start()
+    {
+        _pauseData.pauseables.Add(this);
     }
     #region Pause
     public void SetPauseButton(bool pauseButton)
@@ -37,10 +42,12 @@ public class PauseController : MonoBehaviour
         if (_isPaused)
         {
             ResumeGame();
+            _pauseData.UnPause();
         }
-        else  
+        else
         {
             PauseGame();
+            _pauseData.Pause();
         }
 
         StartCoroutine(PauseCooldown());
@@ -105,5 +112,15 @@ public class PauseController : MonoBehaviour
     public void OnVolumeControlButton()
     {
         volumeControlMenu.gameObject.SetActive(true);
+    }
+
+    public void SetPause()
+    {
+        Debug.Log("pause " + gameObject.name);
+    }
+
+    public void SetUnPause()
+    {
+        Debug.Log("unpause " + gameObject.name);
     }
 }

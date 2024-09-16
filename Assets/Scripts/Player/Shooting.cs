@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Shooting : BaseGun
 {
+    public Rigidbody CurrentBulletRb {get; set;}
     [SerializeField] private BulletController bulletPrefab;
     [Space]
     [SerializeField] private Transform shotPoint;
@@ -46,13 +47,15 @@ public class Shooting : BaseGun
             {
                 PlayShootSound();
 
-                GameObject bullet = Instantiate(bulletPrefab.gameObject, shotPoint.position, Quaternion.identity);
+                GameObject instatiatedGameObject = Instantiate(bulletPrefab.gameObject, shotPoint.position, Quaternion.identity);
 
-                BulletController instatiatedBullet = bullet.GetComponent<BulletController>();
+                BulletController instatiatedBullet = instatiatedGameObject.GetComponent<BulletController>();
                 instatiatedBullet.BulletDamage = bulletDamage;
 
-                Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
-                bulletRb.AddForce(transform.forward * bulletSpeed * Time.deltaTime);
+                Rigidbody instatiatedRb = instatiatedGameObject.GetComponent<Rigidbody>();
+                instatiatedRb.AddForce(transform.forward * bulletSpeed * Time.deltaTime);
+
+                CurrentBulletRb = instatiatedRb;
 
                 _currentBulletCount--;
 
