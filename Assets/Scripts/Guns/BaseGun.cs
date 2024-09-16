@@ -6,7 +6,8 @@ using UnityEngine.Events;
 
 public class BaseGun : MonoBehaviour
 {
-    public static Action Shooted;
+    public float RechargingTime => rechargingTime;
+    public event Action Recharge;
 
     [SerializeField] protected UnityEvent<int> BulletsCountChanged = new UnityEvent<int>();
     [Space]
@@ -32,7 +33,6 @@ public class BaseGun : MonoBehaviour
 
     protected virtual void Shoot()
     {
-        Shooted?.Invoke();
     }
     protected virtual void PlayShootSound()
     {
@@ -51,6 +51,7 @@ public class BaseGun : MonoBehaviour
     }
     protected IEnumerator Recharging()
     {
+        Recharge?.Invoke();
         _currentBulletCount = 0;
         _recharging = true;
         yield return new WaitForSeconds(rechargingTime);
