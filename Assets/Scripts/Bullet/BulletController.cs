@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class BulletController : MonoBehaviour, IShooteable
 {
+    public event Action BulletDestroyed;
     [HideInInspector] public int BulletDamage = 0;
     
     [SerializeField] private float timeToDestroy;
@@ -17,6 +19,7 @@ public class BulletController : MonoBehaviour, IShooteable
             {
                 healthController.DealDamage(BulletDamage);
             }
+            BulletDestroyed?.Invoke();
             Destroy(gameObject);
         }
         else
@@ -34,6 +37,7 @@ public class BulletController : MonoBehaviour, IShooteable
             {
                 healthController.DealDamage(BulletDamage);
             }
+            BulletDestroyed?.Invoke();
             Destroy(gameObject);
         }
         else
@@ -44,6 +48,7 @@ public class BulletController : MonoBehaviour, IShooteable
     private IEnumerator DestroyAfterTime()
     {
         yield return new WaitForSecondsRealtime(timeToDestroy);
+        BulletDestroyed?.Invoke();
         Destroy(gameObject);
     }
     private void OnDisable()

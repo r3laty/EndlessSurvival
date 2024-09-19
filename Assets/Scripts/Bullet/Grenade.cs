@@ -17,15 +17,7 @@ public class Grenade : MonoBehaviour, IShooteable
         _mesh = GetComponent<MeshRenderer>();
         _collider = GetComponent<CapsuleCollider>();
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag(TagManager.FloorTag))
-        {
-            Invoke("Explode", timeToExplode);
-        }
-    }
-
-    private void Explode()
+    public void Explode()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius, layerMask);
 

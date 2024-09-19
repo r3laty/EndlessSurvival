@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GrenadeLauncher : BaseGun
 {
+    public Grenade CurrentGrenade = null;
     [SerializeField] private Grenade grenadePrefab;
     [SerializeField] private Transform shotPoint;
     [SerializeField] private float fireRate = 1f;
@@ -42,11 +43,15 @@ public class GrenadeLauncher : BaseGun
                 PlayShootSound();
 
                 GameObject grenade = Instantiate(grenadePrefab.gameObject, shotPoint.position, Quaternion.identity);
-                Grenade bazeGrenade = grenade.GetComponent<Grenade>();
-                bazeGrenade.BulletDamage = bulletDamage;
-                Rigidbody grenadeRb = grenade.GetComponent<Rigidbody>();
 
+                Grenade baseGrenade = grenade.GetComponent<Grenade>();
+                baseGrenade.BulletDamage = bulletDamage;
+                CurrentGrenade = baseGrenade;
+
+                Rigidbody grenadeRb = grenade.GetComponent<Rigidbody>();
                 grenadeRb.AddForce(transform.forward * launchForce * Time.deltaTime);
+                CurrentBulletRb = grenadeRb;
+
                 _currentBulletCount--;
 
                 StartCoroutine(DelayBetweenShots());

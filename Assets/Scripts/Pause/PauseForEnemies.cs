@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -6,7 +5,6 @@ public class PauseForEnemies : MonoBehaviour, IPauseable
 {
     [Inject] private WaveSpawner _waveSpawner;
     [Inject] private PauseData _pauseData;
-    private List<EnemyController> _enemyControllersOnScene;
     private void Start()
     {
         _pauseData.Pauseables.Add(this);
@@ -26,13 +24,17 @@ public class PauseForEnemies : MonoBehaviour, IPauseable
     }
     private void SetEnemies(bool turner)
     {
-        foreach (var enemy in _waveSpawner.InstantiatedEnemieHps)
+        foreach (var enemyHealth in _waveSpawner.InstantiatedEnemieHps)
         {
-            var enemyController = enemy.GetComponent<EnemyController>();
-            enemyController.enabled = turner;
+            if (enemyHealth.TryGetComponent<EnemyController>(out EnemyController controller))
+            {
+                controller.enabled = turner;
 
-            var enemyAnimator = enemy.GetComponentInChildren<Animator>();
-            enemyAnimator.enabled = turner;
+                var enemyAnimator = enemyHealth.GetComponentInChildren<Animator>();
+                enemyAnimator.enabled = turner;
+
+                enemyHealth.enabled = turner;
+            }
         }
     }
 }

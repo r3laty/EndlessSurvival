@@ -1,7 +1,6 @@
 using FMODUnity;
 using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -48,8 +47,8 @@ public class BaseGun : MonoBehaviour
     {
         _shootDelay = true;
         yield return new WaitForSeconds(delayBetweenShots);
-
         _shootDelay = false;
+        CurrentBulletRb = null;
     }
     protected IEnumerator Recharging()
     {

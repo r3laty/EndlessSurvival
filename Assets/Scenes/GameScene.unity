@@ -1071,6 +1071,7 @@ GameObject:
   - component: {fileID: 215409488}
   - component: {fileID: 215409487}
   - component: {fileID: 215409486}
+  - component: {fileID: 215409490}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Floor
@@ -1165,6 +1166,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &215409490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215409485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbf1f6bec0b31bb4ea83db05a036e27b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &222474562
 GameObject:
   m_ObjectHideFlags: 0
@@ -6283,7 +6296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf7ca4cb1179f149b665c49cf7dc505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InstantiatedEnemies: []
+  InstantiatedEnemieHps: []
   waveData:
     SpawningFrequency: 3
     Enemies:

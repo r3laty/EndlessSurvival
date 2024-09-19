@@ -8,7 +8,7 @@ public class WaveSpawner : MonoBehaviour
     public int WavesCount => _wavesCount;
     public event Action<int> WaveSpawned;
 
-    [HideInInspector] public List<HealthController> InstantiatedEnemieHps = new List<HealthController>();
+    public List<HealthController> InstantiatedEnemieHps = new List<HealthController>();
 
     [SerializeField] private WaveData waveData = new WaveData();
     private int _wavesCount = 0;
@@ -49,8 +49,12 @@ public class WaveSpawner : MonoBehaviour
             {
                 enemy.Health++;
                 enemy.Damage++;
-                enemy.Spawnpoint.position = new Vector3(UnityEngine.Random.Range(-22, 22), 1, UnityEngine.Random.Range(23.28f, -23.28f));
+                enemy.Spawnpoint.position = RandomPosition();
             }
         }
+    }
+    private Vector3 RandomPosition()
+    {
+        return new Vector3(UnityEngine.Random.Range(-22, 22), 1, UnityEngine.Random.Range(23.28f, -23.28f));
     }
 }
