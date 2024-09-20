@@ -37,14 +37,10 @@ public class PauseController : MonoBehaviour
         if (_isPaused)
         {
             ResumeGame();
-            _pauseData.UnPause();
-            Debug.Log("Resume");
         }
         else
         {
             PauseGame();
-            _pauseData.Pause();
-            Debug.Log("Pause");
         }
 
         StartCoroutine(PauseCooldown());
@@ -53,11 +49,13 @@ public class PauseController : MonoBehaviour
     {
         volumeControlMenu.gameObject.SetActive(false);
         pauseMenu.gameObject.SetActive(true);
+        _pauseData.Pause();
         _isPaused = true;
     }
     private void ResumeGame()
     {
         pauseMenu.gameObject.SetActive(false);
+        _pauseData.UnPause();
         _isPaused = false;
     }
     private IEnumerator PauseCooldown()

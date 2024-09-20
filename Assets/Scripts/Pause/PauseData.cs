@@ -6,7 +6,6 @@ public class PauseData
     public List<IPauseable> Pauseables = new List<IPauseable>();
     public void Pause()
     {
-        Debug.Log(Pauseables.Count + " count of list IPauseable");
         foreach (var pauseable in Pauseables)
         {
             pauseable.GamePause();
