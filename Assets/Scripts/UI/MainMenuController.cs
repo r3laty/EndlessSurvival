@@ -31,6 +31,11 @@ public class MainMenuController : MonoBehaviour
         mainMenu.SetActive(false);
         characterSelectionsMenu.SetActive(true);
     }
+    public void OnLeaveSelectionButton()
+    {
+        characterSelectionsMenu.SetActive(false);
+        mainMenu.SetActive(true);
+    }
     /// <summary>
     /// Method on button
     /// </summary>
